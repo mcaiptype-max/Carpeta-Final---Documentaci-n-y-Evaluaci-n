@@ -52,7 +52,7 @@
 
       <div>
         <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">TIPO DE ARCHIVO</div>
-        <div class="filter-bar" style="margin-bottom:0;">
+        <div class="filter-bar" style="margin-bottom:0;" data-group="tipo">
           <button class="filter-btn active" onclick="filtrar('tipo','todos',this)">Todos</button>
           <button class="filter-btn" onclick="filtrar('tipo','pdf',this)">PDF</button>
           <button class="filter-btn" onclick="filtrar('tipo','img',this)">Imágenes</button>
@@ -63,7 +63,7 @@
 
       <div>
         <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">COMISIÓN</div>
-        <div class="filter-bar" style="margin-bottom:0;">
+        <div class="filter-bar" style="margin-bottom:0;" data-group="comision">
           <button class="filter-btn active" onclick="filtrar('comision','todas',this)">Todas</button>
           <button class="filter-btn" onclick="filtrar('comision','doc-eval',this)">Doc. y Evaluación</button>
           <button class="filter-btn" onclick="filtrar('comision','gestion',this)">Gestión Ponentes</button>
@@ -190,7 +190,7 @@
 </section>
 
 <footer>
-  <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
+  <p>Panel de Ponentes 2025 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
   <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Planeación de Procesos</p>
 </footer>
 
@@ -201,10 +201,10 @@
   function filtrar(dimension, valor, btn) {
     if (dimension === 'tipo') {
       tipoActivo = valor;
-      document.querySelectorAll('.filter-bar:first-of-type .filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-group="tipo"] .filter-btn').forEach(b => b.classList.remove('active'));
     } else {
       comisionActiva = valor;
-      document.querySelectorAll('.filter-bar:last-of-type .filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
     }
     btn.classList.add('active');
     aplicarFiltros();
@@ -213,23 +213,16 @@
   function aplicarFiltros() {
     const items = document.querySelectorAll('.gallery-item');
     let visibles = 0;
-
     items.forEach(item => {
-      const tipoOk = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
+      const tipoOk     = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
       const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
-      if (tipoOk && comisionOk) {
-        item.classList.remove('hidden');
-        visibles++;
-      } else {
-        item.classList.add('hidden');
-      }
+      if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
+      else { item.classList.add('hidden'); }
     });
-
     document.getElementById('num-visible').textContent = visibles;
     document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
   }
 
-  // Inicializar contador
   aplicarFiltros();
 </script>
 
