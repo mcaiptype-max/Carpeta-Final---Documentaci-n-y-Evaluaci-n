@@ -454,12 +454,17 @@ footer span { color: var(--cyan); }
   object-position: center;
   opacity: 0.9;
 }
-
+/* Ocultar la foto de abajo en escritorio por defecto */
+.hero-foto-mobile {
+  display: none;
+}
 /* En móvil: oculta la foto dentro del hero,
    la foto de abajo (ancho completo) sigue visible */
 @media (max-width: 640px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-foto-desktop { display: none; }
+   /* Enciende la foto de abajo a lo ancho completo */
+  .hero-foto-mobile { display: block; }
 }
 @media (max-width: 640px) {
   nav {
