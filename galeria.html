@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galería de Evidencias · Panel de Ponentes BUAP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ── NAVEGACIÓN ── -->
-<nav>
-  <a class="nav-brand" href="index.html">
-    <div class="nav-escudo">B</div>
-    <div class="nav-name">
-      <strong>Panel de <span>Ponentes</span></strong>
-      <small>Benemérita Universidad Autónoma de Puebla</small>
+  <!-- ── NAVEGACIÓN ── -->
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <div class="nav-escudo">B</div>
+      <div class="nav-name">
+        <strong>Panel de <span>Ponentes</span></strong>
+        <small>Benemérita Universidad Autónoma de Puebla</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="comisiones.html">Comisiones</a>
+      <a href="galeria.html" class="active">Galería</a>
+      <a href="evaluacion.html">Evaluación</a>
     </div>
-  </a>
-  <div class="nav-links">
-    <a href="index.html">Inicio</a>
-    <a href="comisiones.html">Comisiones</a>
-    <a href="galeria.html" class="active">Galería</a>
-    <a href="evaluacion.html">Evaluación</a>
-  </div>
-</nav>
+  </nav>
 
-<!-- ── HEADER ── -->
-<div style="background:#003865; padding:2.5rem 2rem 2rem;">
-  <div class="container">
-    <div class="section-tag">Evidencias del evento</div>
-    <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Galería de evidencias</h1>
-    <p style="color:rgba(255,255,255,0.6); font-size:14px;">Todos los archivos del evento organizados por tipo y comisión. Puedes visualizarlos directamente aquí sin salir del sitio.</p>
+  <!-- ── HEADER ── -->
+  <div style="background:#003865; padding:2.5rem 2rem 2rem;">
+    <div class="container">
+      <div class="section-tag">Evidencias del evento</div>
+      <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Galería de evidencias</h1>
+      <p style="color:rgba(255,255,255,0.6); font-size:14px;">Todos los archivos del evento organizados por tipo y
+        comisión. Puedes visualizarlos directamente aquí sin salir del sitio.</p>
+    </div>
   </div>
-</div>
 
-<!-- ── INSTRUCCIÓN: CÓMO AGREGAR EVIDENCIAS ──
+  <!-- ── INSTRUCCIÓN: CÓMO AGREGAR EVIDENCIAS ──
   Para añadir un archivo a la galería:
   1. Agrega un nuevo <div class="gallery-item"> copiando cualquiera de los ejemplos de abajo
   2. En data-tipo pon: pdf | img | video | doc
@@ -44,181 +47,206 @@
   5. Actualiza el título y la descripción en gallery-info
   ─────────────────────────────────────────── -->
 
-<section class="section">
-  <div class="container">
+  <section class="section">
+    <div class="container">
 
-    <!-- Filtros -->
-    <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start; margin-bottom:1.5rem;">
+      <!-- Filtros -->
+      <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start; margin-bottom:1.5rem;">
 
-      <div>
-        <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">TIPO DE ARCHIVO</div>
-        <div class="filter-bar" style="margin-bottom:0;" data-group="tipo">
-          <button class="filter-btn active" onclick="filtrar('tipo','todos',this)">Todos</button>
-          <button class="filter-btn" onclick="filtrar('tipo','pdf',this)">PDF</button>
-          <button class="filter-btn" onclick="filtrar('tipo','img',this)">Imágenes</button>
-          <button class="filter-btn" onclick="filtrar('tipo','video',this)">Video</button>
-          <button class="filter-btn" onclick="filtrar('tipo','doc',this)">Word / Doc</button>
-        </div>
-      </div>
-
-      <div>
-        <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">COMISIÓN</div>
-        <div class="filter-bar" style="margin-bottom:0;" data-group="comision">
-          <button class="filter-btn active" onclick="filtrar('comision','todas',this)">Todas</button>
-          <button class="filter-btn" onclick="filtrar('comision','doc-eval',this)">Doc. y Evaluación</button>
-          <button class="filter-btn" onclick="filtrar('comision','gestion',this)">Gestión Ponentes</button>
-          <button class="filter-btn" onclick="filtrar('comision','logistica',this)">Logística</button>
-          <button class="filter-btn" onclick="filtrar('comision','comunicacion',this)">Comunicación</button>
-          <button class="filter-btn" onclick="filtrar('comision','protocolo',this)">Protocolo</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contador -->
-    <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem;" id="contador">
-      Mostrando <strong id="num-visible">0</strong> evidencias
-    </div>
-
-    <!-- GRID DE EVIDENCIAS -->
-    <div class="gallery-grid" id="galeria">
-
-      <!-- ══ EJEMPLOS — REEMPLAZA CON TUS EVIDENCIAS REALES ══ -->
-
-      <!-- Ejemplo 1: PDF -->
-      <div class="gallery-item" data-tipo="pdf" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview" height="190"></iframe>
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview" height="190"></iframe> -->
-          <span class="type-tag badge-pdf">PDF</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Formato de evidencias</h4>
-          <p>Doc. y Evaluación · Antes del evento</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 2: Imagen -->
-      <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
-        <div class="gallery-preview">
-          <iframe src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"></iframe>
-          <!-- REEMPLAZA: <img src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"> -->
-          <span class="type-tag badge-img">IMG</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Cartel de difusión</h4>
-          <p>Comunicación y Difusión · Antes</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 3: Video -->
-      <div class="gallery-item" data-tipo="video" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190" allow="autoplay"></iframe> -->
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            <strong>Video del evento</strong>
+        <div>
+          <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">TIPO DE
+            ARCHIVO</div>
+          <div class="filter-bar" style="margin-bottom:0;" data-group="tipo">
+            <button class="filter-btn active" onclick="filtrar('tipo','todos',this)">Todos</button>
+            <button class="filter-btn" onclick="filtrar('tipo','pdf',this)">PDF</button>
+            <button class="filter-btn" onclick="filtrar('tipo','img',this)">Imágenes</button>
+            <button class="filter-btn" onclick="filtrar('tipo','video',this)">Video</button>
+            <button class="filter-btn" onclick="filtrar('tipo','doc',this)">Word / Doc</button>
           </div>
-          <span class="type-tag badge-video">VIDEO</span>
         </div>
-        <div class="gallery-info">
-          <h4>Grabación de la ponencia</h4>
-          <p>Doc. y Evaluación · Durante</p>
-        </div>
-      </div>
 
-      <!-- Ejemplo 4: Word / Doc -->
-      <div class="gallery-item" data-tipo="doc" data-comision="gestion">
-        <div class="gallery-preview">
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190"></iframe> -->
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <strong>Documento Word</strong>
+        <div>
+          <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">COMISIÓN
           </div>
-          <span class="type-tag badge-doc">DOC</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Ficha del ponente</h4>
-          <p>Gestión de Ponentes · Antes</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 5: PDF -->
-      <div class="gallery-item" data-tipo="pdf" data-comision="logistica">
-        <div class="gallery-preview">
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <strong>Vista previa del PDF</strong>
+          <div class="filter-bar" style="margin-bottom:0;" data-group="comision">
+            <button class="filter-btn active" onclick="filtrar('comision','todas',this)">Todas</button>
+            <button class="filter-btn" onclick="filtrar('comision','doc-eval',this)">Doc. y Evaluación</button>
+            <button class="filter-btn" onclick="filtrar('comision','gestion',this)">Gestión Ponentes</button>
+            <button class="filter-btn" onclick="filtrar('comision','logistica',this)">Logística</button>
+            <button class="filter-btn" onclick="filtrar('comision','comunicacion',this)">Comunicación</button>
+            <button class="filter-btn" onclick="filtrar('comision','protocolo',this)">Protocolo</button>
           </div>
-          <span class="type-tag badge-pdf">PDF</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Informe de presupuesto</h4>
-          <p>Logística y Operación · Antes</p>
         </div>
       </div>
 
-      <!-- Ejemplo 6: Imagen -->
-      <div class="gallery-item" data-tipo="img" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <strong>Fotografía del evento</strong>
+      <!-- Contador -->
+      <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem;" id="contador">
+        Mostrando <strong id="num-visible">0</strong> evidencias
+      </div>
+
+      <!-- GRID DE EVIDENCIAS -->
+      <div class="gallery-grid" id="galeria">
+
+        <!-- ══ EJEMPLOS — REEMPLAZA CON TUS EVIDENCIAS REALES ══ -->
+
+        <!-- Ejemplo 1: PDF -->
+        <div class="gallery-item" data-tipo="pdf" data-comision="doc-eval">
+          <div class="gallery-preview">
+            <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview"
+              height="190"></iframe>
+            <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview" height="190"></iframe> -->
+            <span class="type-tag badge-pdf">PDF</span>
           </div>
-          <span class="type-tag badge-img">IMG</span>
+          <div class="gallery-info">
+            <h4>Formato de evidencias</h4>
+            <p>Doc. y Evaluación · Antes del evento</p>
+          </div>
         </div>
-        <div class="gallery-info">
-          <h4>Registro de asistencia</h4>
-          <p>Doc. y Evaluación · Durante</p>
+
+        <!-- Ejemplo 2: Imagen -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"></iframe>
+            <!-- REEMPLAZA: <img src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"> -->
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel de difusión</h4>
+            <p>Comunicación y Difusión · Antes</p>
+          </div>
         </div>
+
+        <!-- Ejemplo 3: Video -->
+        <div class="gallery-item" data-tipo="video" data-comision="doc-eval">
+          <div class="gallery-preview">
+            <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190" allow="autoplay"></iframe> -->
+            <div class="embed-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" />
+              </svg>
+              <strong>Video del evento</strong>
+            </div>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Grabación de la ponencia</h4>
+            <p>Doc. y Evaluación · Durante</p>
+          </div>
+        </div>
+
+        <!-- Ejemplo 4: Word / Doc -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190"></iframe> -->
+            <div class="embed-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+              <strong>Documento Word</strong>
+            </div>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Ficha del ponente</h4>
+            <p>Gestión de Ponentes · Antes</p>
+          </div>
+        </div>
+
+        <!-- Ejemplo 5: PDF -->
+        <div class="gallery-item" data-tipo="pdf" data-comision="logistica">
+          <div class="gallery-preview">
+            <div class="embed-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+              <strong>Vista previa del PDF</strong>
+            </div>
+            <span class="type-tag badge-pdf">PDF</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Informe de presupuesto</h4>
+            <p>Logística y Operación · Antes</p>
+          </div>
+        </div>
+
+        <!-- Ejemplo 6: Imagen -->
+        <div class="gallery-item" data-tipo="img" data-comision="doc-eval">
+          <div class="gallery-preview">
+            <div class="embed-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <strong>Fotografía del evento</strong>
+            </div>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Registro de asistencia</h4>
+            <p>Doc. y Evaluación · Durante</p>
+          </div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+
+      <!-- Estado vacío -->
+      <div id="vacio" style="display:none; text-align:center; padding:3rem; color:#9CA3AF;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          style="margin-bottom:10px; opacity:0.4;">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <p style="font-size:14px;">No hay evidencias para este filtro todavía.</p>
       </div>
 
-    </div><!-- /gallery-grid -->
+    </div><!-- /container -->
+  </section>
 
-    <!-- Estado vacío -->
-    <div id="vacio" style="display:none; text-align:center; padding:3rem; color:#9CA3AF;">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:10px; opacity:0.4;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <p style="font-size:14px;">No hay evidencias para este filtro todavía.</p>
-    </div>
+  <footer>
+    <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
+    <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de
+      Procesos</p>
+  </footer>
 
-  </div><!-- /container -->
-</section>
+  <script>
+    let tipoActivo = 'todos';
+    let comisionActiva = 'todas';
 
-<footer>
-  <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
-  <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de Procesos</p>
-</footer>
-
-<script>
-  let tipoActivo = 'todos';
-  let comisionActiva = 'todas';
-
-  function filtrar(dimension, valor, btn) {
-    if (dimension === 'tipo') {
-      tipoActivo = valor;
-      document.querySelectorAll('[data-group="tipo"] .filter-btn').forEach(b => b.classList.remove('active'));
-    } else {
-      comisionActiva = valor;
-      document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
+    function filtrar(dimension, valor, btn) {
+      if (dimension === 'tipo') {
+        tipoActivo = valor;
+        document.querySelectorAll('[data-group="tipo"] .filter-btn').forEach(b => b.classList.remove('active'));
+      } else {
+        comisionActiva = valor;
+        document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
+      }
+      btn.classList.add('active');
+      aplicarFiltros();
     }
-    btn.classList.add('active');
+
+    function aplicarFiltros() {
+      const items = document.querySelectorAll('.gallery-item');
+      let visibles = 0;
+      items.forEach(item => {
+        const tipoOk = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
+        const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
+        if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
+        else { item.classList.add('hidden'); }
+      });
+      document.getElementById('num-visible').textContent = visibles;
+      document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
+    }
+
     aplicarFiltros();
-  }
-
-  function aplicarFiltros() {
-    const items = document.querySelectorAll('.gallery-item');
-    let visibles = 0;
-    items.forEach(item => {
-      const tipoOk     = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
-      const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
-      if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
-      else { item.classList.add('hidden'); }
-    });
-    document.getElementById('num-visible').textContent = visibles;
-    document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
-  }
-
-  aplicarFiltros();
-</script>
+  </script>
 
 </body>
+
 </html>

@@ -317,7 +317,8 @@ nav {
   gap: 16px;
 }
 
-.gallery-item { border: 0.5px solid var(--gray-200); border-radius: 10px; overflow: hidden; background: white; transition: border-color 0.15s; }
+/* CORRECCIÓN: overflow:hidden eliminado para que .gallery-info y sus enlaces no queden recortados */
+.gallery-item { border: 0.5px solid var(--gray-200); border-radius: 10px; overflow: visible; background: white; transition: border-color 0.15s; border-radius: 10px; }
 .gallery-item:hover { border-color: var(--cyan); }
 .gallery-item.hidden { display: none; }
 
@@ -328,35 +329,60 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;        /* Mantiene el recorte visual del área de previsualización */
+  border-radius: 10px 10px 0 0; /* Compensa la pérdida de clip del padre */
+  pointer-events: none;   /* CORRECCIÓN: la capa contenedora no bloquea clics propios */
 }
 
+/* CORRECCIÓN: pointer-events:auto permite interacción real con el iframe embebido */
 .gallery-preview iframe {
   width: 100%;
   height: 100%;
   border: none;
-  pointer-events: none;
+  pointer-events: auto;   /* Habilitado: el usuario puede hacer clic e interactuar */
+  position: relative;
+  z-index: 10;
 }
 
 .gallery-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: auto;   /* CORRECCIÓN: la imagen puede recibir clics */
+  position: relative;
+  z-index: 10;
 }
 
 .type-tag {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 10px;           /* CAMBIO: de right:8px → left:10px (esquina superior izquierda) */
+  z-index: 20;          /* Siempre visible sobre imagen o iframe */
   font-size: 10px;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
 }
 
-.gallery-info { padding: 10px 14px 14px; }
-.gallery-info h4 { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* CORRECCIÓN: position:relative + z-index garantiza que gallery-info quede siempre sobre capas superpuestas */
+.gallery-info {
+  padding: 10px 14px 14px;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;   /* El área de info recibe todos los clics del usuario */
+  background: white;      /* Fondo sólido para que tape cualquier capa inferior */
+  border-radius: 0 0 10px 10px;
+}
+/* CORRECCIÓN: eliminado overflow:hidden para que el título no se recorte */
+.gallery-info h4 { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
 .gallery-info p  { font-size: 11px; color: var(--gray-400); }
+/* CORRECCIÓN: enlace de acceso externo siempre clicable y visible */
+.gallery-info a  {
+  pointer-events: auto;
+  position: relative;
+  z-index: 20;            /* Sobre gallery-info para garantizar recepción de clic */
+  cursor: pointer;
+}
 
 /* ── TIMELINE ── */
 .timeline { display: flex; flex-direction: column; gap: 10px; }
