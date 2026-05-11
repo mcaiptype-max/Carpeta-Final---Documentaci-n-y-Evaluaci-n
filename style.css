@@ -317,7 +317,8 @@ nav {
   gap: 16px;
 }
 
-.gallery-item { border: 0.5px solid var(--gray-200); border-radius: 10px; overflow: hidden; background: white; transition: border-color 0.15s; }
+/* CORRECCIÓN: overflow:hidden eliminado para que .gallery-info y sus enlaces no queden recortados */
+.gallery-item { border: 0.5px solid var(--gray-200); border-radius: 10px; overflow: visible; background: white; transition: border-color 0.15s; border-radius: 10px; }
 .gallery-item:hover { border-color: var(--cyan); }
 .gallery-item.hidden { display: none; }
 
@@ -328,35 +329,84 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;        /* Mantiene el recorte visual del área de previsualización */
+  border-radius: 10px 10px 0 0; /* Compensa la pérdida de clip del padre */
+  pointer-events: none;   /* CORRECCIÓN: la capa contenedora no bloquea clics propios */
 }
 
+/* CORRECCIÓN: pointer-events:auto permite interacción real con el iframe embebido */
 .gallery-preview iframe {
   width: 100%;
   height: 100%;
   border: none;
-  pointer-events: none;
+  pointer-events: auto;   /* Habilitado: el usuario puede hacer clic e interactuar */
+  position: relative;
+  z-index: 10;
 }
 
 .gallery-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: auto;   /* CORRECCIÓN: la imagen puede recibir clics */
+  position: relative;
+  z-index: 10;
 }
 
 .type-tag {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 10px;           /* CAMBIO: de right:8px → left:10px (esquina superior izquierda) */
+  z-index: 20;          /* Siempre visible sobre imagen o iframe */
   font-size: 10px;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
 }
 
-.gallery-info { padding: 10px 14px 14px; }
-.gallery-info h4 { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* CORRECCIÓN: position:relative + z-index garantiza que gallery-info quede siempre sobre capas superpuestas */
+.gallery-info {
+  padding: 10px 14px 14px;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;   /* El área de info recibe todos los clics del usuario */
+  background: white;      /* Fondo sólido para que tape cualquier capa inferior */
+  border-radius: 0 0 10px 10px;
+}
+/* CORRECCIÓN: eliminado overflow:hidden para que el título no se recorte */
+.gallery-info h4 { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
 .gallery-info p  { font-size: 11px; color: var(--gray-400); }
+/* CORRECCIÓN: enlace de acceso externo siempre clicable y visible */
+.gallery-info a  {
+  pointer-events: auto;
+  position: relative;
+  z-index: 20;            /* Sobre gallery-info para garantizar recepción de clic */
+  cursor: pointer;
+}
+
+/* ── BOTÓN ABRIR DOCUMENTO ── */
+.btn-open-doc {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--cyan-soft);
+  border: 1px solid rgba(0,181,226,0.3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+
+.btn-open-doc:hover {
+  background: #c8eef9;
+  border-color: var(--cyan);
+  color: var(--navy);
+}
 
 /* ── TIMELINE ── */
 .timeline { display: flex; flex-direction: column; gap: 10px; }
@@ -364,15 +414,15 @@ nav {
 .tl-item {
   display: flex;
   gap: 14px;
-  align-items: flex-start;
+  align-items: stretch;
   background: white;
   border: 0.5px solid var(--gray-200);
   border-radius: 10px;
   padding: 14px 16px;
 }
 
-.tl-time { font-size: 13px; font-weight: 700; color: var(--cyan); min-width: 52px; flex-shrink: 0; }
-.tl-bar  { width: 3px; min-height: 36px; background: var(--navy); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+.tl-time { font-size: 13px; font-weight: 700; color: var(--cyan); min-width: 52px; flex-shrink: 0; display: flex; align-items: center; }
+.tl-bar  { width: 3px; background: var(--navy); border-radius: 2px; flex-shrink: 0; align-self: stretch; }
 
 .tl-content h4 { font-size: 13px; font-weight: 600; color: var(--navy); }
 .tl-content p  { font-size: 11px; color: var(--gray-600); margin-top: 2px; }
@@ -444,15 +494,18 @@ footer span { color: var(--cyan); }
 .hero-foto-desktop {
   border-radius: 12px;
   overflow: hidden;
-  height: 380px; /* ajusta la altura a tu gusto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-foto-desktop img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   opacity: 0.9;
+  border-radius: 12px;
 }
 /* Ocultar la foto de abajo en escritorio por defecto */
 .hero-foto-mobile {

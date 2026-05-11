@@ -1,290 +1,600 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comisiones · Panel de Ponentes BUAP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ── NAVEGACIÓN ── -->
-<nav>
-  <a class="nav-brand" href="index.html">
-    <div class="nav-escudo">B</div>
-    <div class="nav-name">
-      <strong>Panel de <span>Ponentes</span></strong>
-      <small>Benemérita Universidad Autónoma de Puebla</small>
+  <!-- ── NAVEGACIÓN ── -->
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <div class="nav-escudo">B</div>
+      <div class="nav-name">
+        <strong>Panel de <span>Ponentes</span></strong>
+        <small>Benemérita Universidad Autónoma de Puebla</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="comisiones.html" class="active">Comisiones</a>
+      <a href="galeria.html">Galería</a>
+      <a href="evaluacion.html">Evaluación</a>
     </div>
-  </a>
-  <div class="nav-links">
-    <a href="index.html">Inicio</a>
-    <a href="comisiones.html" class="active">Comisiones</a>
-    <a href="galeria.html">Galería</a>
-    <a href="evaluacion.html">Evaluación</a>
-  </div>
-</nav>
+  </nav>
 
-<!-- ── HEADER ── -->
-<div style="background:#003865; padding:2.5rem 2rem 2rem;">
-  <div class="container">
-    <div class="section-tag">Organización del evento</div>
-    <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Las cinco comisiones</h1>
-    <p style="color:rgba(255,255,255,0.6); font-size:14px;">Entregables, estado de avance y evidencias por área de trabajo.</p>
+  <!-- ── HEADER ── -->
+  <div style="background:#003865; padding:2.5rem 2rem 2rem;">
+    <div class="container">
+      <div class="section-tag">Organización del evento</div>
+      <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Las cinco comisiones</h1>
+      <p style="color:rgba(255,255,255,0.6); font-size:14px;">Entregables, estado de avance y evidencias por área de
+        trabajo.</p>
+    </div>
   </div>
-</div>
 
-<!-- ════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════
      INSTRUCCIÓN PARA AGREGAR IFRAMES DE DRIVE:
-     1. Abre el archivo en Google Drive
-     2. Clic en los tres puntos → "Abrir en nueva ventana"
-     3. En la barra de URL cambia "/view" por "/preview"
-     4. Copia esa URL y pégala en el atributo src="" del iframe correspondiente
-     5. Asegúrate de que el archivo tenga permiso "Cualquier persona con el enlace puede ver"
+     1. Abre la carpeta en Google Drive
+     2. Copia la URL de la carpeta compartida
+     3. Extrae el ID: la parte después de "folders/" y antes de "?"
+     4. Pégalo en el atributo src del <iframe>:
+        src="https://drive.google.com/embeddedfolderview?id=TU_ID#list"
+     5. Asegúrate de que la carpeta tenga permiso "Cualquier persona con el enlace puede ver"
      ════════════════════════════════════════════ -->
 
-<div class="section">
-<div class="container">
+  <div class="section">
+    <div class="container">
 
-  <!-- ══ 1. DOCUMENTACIÓN Y EVALUACIÓN ══ -->
-  <div id="doc-eval" style="margin-bottom:3rem;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-      <div style="width:4px; height:32px; background:#00B5E2; border-radius:2px;"></div>
-      <div>
-        <div class="section-tag">Nuestra comisión</div>
-        <h2 class="section-title" style="margin-bottom:0;">Documentación y Evaluación</h2>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header">
-          <h3>Entregables</h3>
-          <p>Estado actual de los entregables</p>
-        </div>
-        <div class="card-body">
-          <ul class="entregable-list">
-            <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
-            <li><span class="entregable-name"><span class="dot"></span>Formatos de evidencias</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Checklist de evidencias (demás comisiones)</span><span class="badge badge-done">MILANESA DE POLLO</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Link carpeta de formatos</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Registro de asistencias</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Encuesta de satisfacción</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Bitácora del evento</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Informe</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Reporte final</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Carpeta final</span><span class="badge badge-pending">Pendiente</span></li>
-          </ul>
-          <div class="progress-wrap">
-            <!-- EDITAR: cambia el width del fill y los textos según avance -->
-            <div class="progress-label"><span>Avance general</span><span>1 / 9</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width:10%"></div></div>
+      <!-- ══ 1. DOCUMENTACIÓN Y EVALUACIÓN ══ -->
+      <div id="doc-eval" style="margin-bottom:3rem;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+          <div style="width:4px; height:32px; background:#00B5E2; border-radius:2px;"></div>
+          <div>
+            <div class="section-tag">Nuestra comisión</div>
+            <h2 class="section-title" style="margin-bottom:0;">Documentación y Evaluación</h2>
           </div>
         </div>
-      </div>
 
-      <div>
-        <div class="card">
-          <div class="card-header"><h3>Carpeta de Drive</h3><p>Evidencias de nuestra comisión</p></div>
-          <div class="card-body" style="padding:0;">
-            <div class="embed-wrap">
-              <!-- PEGA AQUÍ el link de tu carpeta de Drive (formato /preview o embeddedfolderview) -->
-              <div class="embed-placeholder">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                <strong>Carpeta de Google Drive</strong>
-                <p>Pega aquí el src de tu carpeta</p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3>Entregables</h3>
+              <p>Estado actual de los entregables</p>
+            </div>
+            <div class="card-body">
+              <ul class="entregable-list">
+                <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
+                <li><span class="entregable-name"><span class="dot"></span>Formatos de evidencias</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Checklist de evidencias (demás
+                    comisiones)</span><span class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Link carpeta de formatos</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Registro de asistencias</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Encuesta de satisfacción</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Bitácora del evento</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Informe</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Reporte final</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Carpeta final</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+              </ul>
+              <div class="progress-wrap">
+                <!-- EDITAR: cambia el width del fill y los textos según avance -->
+                <div class="progress-label"><span>Avance general</span><span>5 / 9</span></div>
+                <div class="progress-bg">
+                  <div class="progress-fill" style="width:55%"></div>
+                </div>
               </div>
-              <!-- CUANDO TENGAS EL LINK, REEMPLAZA el div.embed-placeholder con esto:
-              <iframe src="TU_LINK_DE_DRIVE_AQUI" height="320"></iframe>
-              -->
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div class="card" style="flex:1; overflow:hidden;">
+              <div class="card-header" style="display:flex; align-items:center; gap:10px;">
+                <!-- Ícono carpeta Drive -->
+                <svg width="22" height="22" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="flex-shrink:0;">
+                  <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 52H0c0 1.55.4 3.1 1.2 4.5z"
+                    fill="#0066DA" />
+                  <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z"
+                    fill="#00AC47" />
+                  <path
+                    d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60l5.55 10.5z"
+                    fill="#EA4335" />
+                  <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D" />
+                  <path d="M60 52H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.5c1.6 0 3.15-.4 4.5-1.2z" fill="#2684FC" />
+                  <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 60 52h27.45c0-1.55-.4-3.1-1.2-4.5z"
+                    fill="#FFBA00" />
+                </svg>
+                <div>
+                  <h3 style="margin:0;">Carpeta de Drive</h3>
+                  <p style="margin:0;">Evidencias de nuestra comisión</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1Kl2eJYsDcxxM7Bhn2IvSBJOhN0yF3Wne"
+                  target="_blank" rel="noopener"
+                  style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:white; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:6px; padding:5px 10px; text-decoration:none; flex-shrink:0; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Abrir
+                </a>
+              </div>
+              <!-- Vista previa incrustada de la carpeta de Google Drive -->
+              <div style="
+                display:flex;
+                justify-content:center;
+                align-items:flex-start;
+                padding:12px;
+                background:#f8fafc;
+                border-top:1px solid #e5e7eb;
+              ">
+                <div style="
+                  width:100%;
+                  max-width:560px;
+                  border-radius:10px;
+                  overflow:hidden;
+                  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+                  border:1px solid #e0e7ef;
+                  background:#fff;
+                ">
+                  <!-- IFRAME DE DRIVE ↓ Reemplaza el ID en src para cambiar la carpeta -->
+                  <iframe src="https://drive.google.com/embeddedfolderview?id=1Kl2eJYsDcxxM7Bhn2IvSBJOhN0yF3Wne#list"
+                    style="width:100%; height:340px; border:none; display:block;"
+                    title="Carpeta de Drive – Evidencias de la comisión" loading="lazy" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
+      <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
 
-  <!-- ══ 2. GESTIÓN DE PONENTES ══ -->
-  <div id="gestion" style="margin-bottom:3rem;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-      <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
-      <div>
-        <div class="section-tag">Comisión</div>
-        <h2 class="section-title" style="margin-bottom:0;">Gestión de Ponentes</h2>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header"><h3>Entregables</h3><p>Estado actual</p></div>
-        <div class="card-body">
-          <ul class="entregable-list">
-            <li><span class="entregable-name"><span class="dot"></span>Ficha del ponente</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Listado de preguntas para el ponente</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Material que proporcione el ponente</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Agenda</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Correo de agradecimiento</span><span class="badge badge-pending">Pendiente</span></li>
-          </ul>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Avance general</span><span>0 / 5</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width:0%"></div></div>
+      <!-- ══ 2. GESTIÓN DE PONENTES ══ -->
+      <div id="gestion" style="margin-bottom:3rem;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+          <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
+          <div>
+            <div class="section-tag">Comisión</div>
+            <h2 class="section-title" style="margin-bottom:0;">Gestión de Ponentes</h2>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h3>Evidencias</h3><p>Archivos entregados a esta comisión</p></div>
-        <div class="card-body" style="padding:0;">
-          <div class="embed-wrap">
-            <div class="embed-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              <strong>Carpeta de Google Drive</strong>
-              <p>Pega aquí el src de la carpeta</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3>Entregables</h3>
+              <p>Estado actual</p>
+            </div>
+            <div class="card-body">
+              <ul class="entregable-list">
+                <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
+                <li><span class="entregable-name"><span class="dot"></span>Ficha del ponente</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Semblanza</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Material que proporcione el
+                    ponente</span><span class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Agenda</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Correo de agradecimiento</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Retroalimentación del Ponente</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+              </ul>
+              <div class="progress-wrap">
+                <!-- EDITAR: cambia el width del fill y los textos según avance -->
+                <div class="progress-label"><span>Avance general</span><span>4 / 6</span></div>
+                <div class="progress-bg">
+                  <div class="progress-fill" style="width:66%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div class="card" style="flex:1; overflow:hidden;">
+              <div class="card-header" style="display:flex; align-items:center; gap:10px;">
+                <!-- Ícono carpeta Drive -->
+                <svg width="22" height="22" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="flex-shrink:0;">
+                  <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 52H0c0 1.55.4 3.1 1.2 4.5z"
+                    fill="#0066DA" />
+                  <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z"
+                    fill="#00AC47" />
+                  <path
+                    d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60l5.55 10.5z"
+                    fill="#EA4335" />
+                  <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D" />
+                  <path d="M60 52H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.5c1.6 0 3.15-.4 4.5-1.2z" fill="#2684FC" />
+                  <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 60 52h27.45c0-1.55-.4-3.1-1.2-4.5z"
+                    fill="#FFBA00" />
+                </svg>
+                <div>
+                  <h3 style="margin:0;">Carpeta de Drive</h3>
+                  <p style="margin:0;">Evidencias de Gestión de Ponentes</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/16Jdl7M1rx_sAog-WTN5UUUcxsuA6j18m"
+                  target="_blank" rel="noopener"
+                  style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:white; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:6px; padding:5px 10px; text-decoration:none; flex-shrink:0; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Abrir
+                </a>
+              </div>
+              <!-- Vista previa incrustada de la carpeta de Google Drive -->
+              <div style="
+                display:flex;
+                justify-content:center;
+                align-items:flex-start;
+                padding:12px;
+                background:#f8fafc;
+                border-top:1px solid #e5e7eb;
+              ">
+                <div style="
+                  width:100%;
+                  max-width:560px;
+                  border-radius:10px;
+                  overflow:hidden;
+                  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+                  border:1px solid #e0e7ef;
+                  background:#fff;
+                ">
+                  <!-- IFRAME DE DRIVE ↓ Reemplaza el ID en src para cambiar la carpeta -->
+                  <iframe src="https://drive.google.com/embeddedfolderview?id=16Jdl7M1rx_sAog-WTN5UUUcxsuA6j18m#list"
+                    style="width:100%; height:340px; border:none; display:block;"
+                    title="Carpeta de Drive – Evidencias de Gestión de Ponentes" loading="lazy" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
+      <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
 
-  <!-- ══ 3. LOGÍSTICA Y OPERACIÓN ══ -->
-  <div id="logistica" style="margin-bottom:3rem;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-      <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
-      <div>
-        <div class="section-tag">Comisión</div>
-        <h2 class="section-title" style="margin-bottom:0;">Logística y Operación</h2>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header"><h3>Entregables</h3><p>Estado actual</p></div>
-        <div class="card-body">
-          <ul class="entregable-list">
-            <li><span class="entregable-name"><span class="dot"></span>Checklist de espacio</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Cronograma del evento</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Informe de presupuesto</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Checklist final</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Informe</span><span class="badge badge-pending">Pendiente</span></li>
-          </ul>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Avance general</span><span>0 / 5</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width:0%"></div></div>
+      <!-- ══ 3. LOGÍSTICA Y OPERACIÓN ══ -->
+      <div id="logistica" style="margin-bottom:3rem;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+          <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
+          <div>
+            <div class="section-tag">Comisión</div>
+            <h2 class="section-title" style="margin-bottom:0;">Logística y Operación</h2>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h3>Evidencias</h3><p>Archivos entregados a esta comisión</p></div>
-        <div class="card-body" style="padding:0;">
-          <div class="embed-wrap">
-            <div class="embed-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              <strong>Carpeta de Google Drive</strong>
-              <p>Pega aquí el src de la carpeta</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3>Entregables</h3>
+              <p>Estado actual</p>
+            </div>
+            <div class="card-body">
+              <ul class="entregable-list">
+                <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
+                <li><span class="entregable-name"><span class="dot"></span>Checklist de espacio</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Cronograma del evento</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Informe de presupuesto</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Checklist final</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Informe</span><span
+                    class="badge badge-pending">Pendiente </span></li>
+              </ul>
+              <div class="progress-wrap">
+                <!-- EDITAR: cambia el width del fill y los textos según avance -->
+                <div class="progress-label"><span>Avance general</span><span>4 / 5</span></div>
+                <div class="progress-bg">
+                  <div class="progress-fill" style="width:  60%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div class="card" style="flex:1; overflow:hidden;">
+              <div class="card-header" style="display:flex; align-items:center; gap:10px;">
+                <!-- Ícono carpeta Drive -->
+                <svg width="22" height="22" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="flex-shrink:0;">
+                  <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 52H0c0 1.55.4 3.1 1.2 4.5z"
+                    fill="#0066DA" />
+                  <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z"
+                    fill="#00AC47" />
+                  <path
+                    d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60l5.55 10.5z"
+                    fill="#EA4335" />
+                  <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D" />
+                  <path d="M60 52H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.5c1.6 0 3.15-.4 4.5-1.2z" fill="#2684FC" />
+                  <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 60 52h27.45c0-1.55-.4-3.1-1.2-4.5z"
+                    fill="#FFBA00" />
+                </svg>
+                <div>
+                  <h3 style="margin:0;">Carpeta de Drive</h3>
+                  <p style="margin:0;">Evidencias de Logística y Operación</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1Io2FRyhkPbIIPcPgfifTTM-JPm_JJk4r"
+                  target="_blank" rel="noopener"
+                  style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:white; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:6px; padding:5px 10px; text-decoration:none; flex-shrink:0; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Abrir
+                </a>
+              </div>
+              <!-- Vista previa incrustada de la carpeta de Google Drive -->
+              <div style="
+                display:flex;
+                justify-content:center;
+                align-items:flex-start;
+                padding:12px;
+                background:#f8fafc;
+                border-top:1px solid #e5e7eb;
+              ">
+                <div style="
+                  width:100%;
+                  max-width:560px;
+                  border-radius:10px;
+                  overflow:hidden;
+                  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+                  border:1px solid #e0e7ef;
+                  background:#fff;
+                ">
+                  <!-- IFRAME DE DRIVE ↓ Reemplaza el ID en src para cambiar la carpeta -->
+                  <iframe src="https://drive.google.com/embeddedfolderview?id=1Io2FRyhkPbIIPcPgfifTTM-JPm_JJk4r#list"
+                    style="width:100%; height:340px; border:none; display:block;"
+                    title="Carpeta de Drive – Evidencias de Logística y Operación" loading="lazy" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
+      <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
 
-  <!-- ══ 4. COMUNICACIÓN Y DIFUSIÓN ══ -->
-  <div id="comunicacion" style="margin-bottom:3rem;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-      <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
-      <div>
-        <div class="section-tag">Comisión</div>
-        <h2 class="section-title" style="margin-bottom:0;">Comunicación y Difusión</h2>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header"><h3>Entregables</h3><p>Estado actual</p></div>
-        <div class="card-body">
-          <ul class="entregable-list">
-            <li><span class="entregable-name"><span class="dot"></span>Cronograma de difusión</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Cartel de difusión</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Carpeta de contenido</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Carpeta digital</span><span class="badge badge-pending">Pendiente</span></li>
-          </ul>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Avance general</span><span>0 / 4</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width:0%"></div></div>
+      <!-- ══ 4. COMUNICACIÓN Y DIFUSIÓN ══ -->
+      <div id="comunicacion" style="margin-bottom:3rem;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+          <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
+          <div>
+            <div class="section-tag">Comisión</div>
+            <h2 class="section-title" style="margin-bottom:0;">Comunicación y Difusión</h2>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h3>Evidencias</h3><p>Archivos entregados a esta comisión</p></div>
-        <div class="card-body" style="padding:0;">
-          <div class="embed-wrap">
-            <div class="embed-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              <strong>Carpeta de Google Drive</strong>
-              <p>Pega aquí el src de la carpeta</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3>Entregables</h3>
+              <p>Estado actual</p>
+            </div>
+            <div class="card-body">
+              <ul class="entregable-list">
+                <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
+                <li><span class="entregable-name"><span class="dot"></span>Cronograma de difusión</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Cartel de difusión</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Carpeta de contenido</span><span
+                    class="badge badge-done">Completado</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Carpeta digital</span><span
+                    class="badge badge-done">Completado</span></li>
+              </ul>
+              <div class="progress-wrap">
+                <!-- EDITAR: cambia el width del fill y los textos según avance -->
+                <div class="progress-label"><span>Avance general</span><span>4 / 4</span></div>
+                <div class="progress-bg">
+                  <div class="progress-fill" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div class="card" style="flex:1; overflow:hidden;">
+              <div class="card-header" style="display:flex; align-items:center; gap:10px;">
+                <!-- Ícono carpeta Drive -->
+                <svg width="22" height="22" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="flex-shrink:0;">
+                  <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 52H0c0 1.55.4 3.1 1.2 4.5z"
+                    fill="#0066DA" />
+                  <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z"
+                    fill="#00AC47" />
+                  <path
+                    d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60l5.55 10.5z"
+                    fill="#EA4335" />
+                  <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D" />
+                  <path d="M60 52H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.5c1.6 0 3.15-.4 4.5-1.2z" fill="#2684FC" />
+                  <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 60 52h27.45c0-1.55-.4-3.1-1.2-4.5z"
+                    fill="#FFBA00" />
+                </svg>
+                <div>
+                  <h3 style="margin:0;">Carpeta de Drive</h3>
+                  <p style="margin:0;">Evidencias de Comunicación y Difusión</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1xnuBMt5d30oR5KJz2Fd0ohJHjAtZaMb1"
+                  target="_blank" rel="noopener"
+                  style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:white; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:6px; padding:5px 10px; text-decoration:none; flex-shrink:0; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Abrir
+                </a>
+              </div>
+              <!-- Vista previa incrustada de la carpeta de Google Drive -->
+              <div style="
+                display:flex;
+                justify-content:center;
+                align-items:flex-start;
+                padding:12px;
+                background:#f8fafc;
+                border-top:1px solid #e5e7eb;
+              ">
+                <div style="
+                  width:100%;
+                  max-width:560px;
+                  border-radius:10px;
+                  overflow:hidden;
+                  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+                  border:1px solid #e0e7ef;
+                  background:#fff;
+                ">
+                  <!-- IFRAME DE DRIVE ↓ Reemplaza el ID en src para cambiar la carpeta -->
+                  <iframe src="https://drive.google.com/embeddedfolderview?id=1xnuBMt5d30oR5KJz2Fd0ohJHjAtZaMb1#list"
+                    style="width:100%; height:340px; border:none; display:block;"
+                    title="Carpeta de Drive – Evidencias de Comunicación y Difusión" loading="lazy" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
+      <hr style="border:none; border-top:0.5px solid #E5E7EB; margin:2rem 0;">
 
-  <!-- ══ 5. PROTOCOLO Y EXPERIENCIA ══ -->
-  <div id="protocolo" style="margin-bottom:2rem;">
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
-      <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
-      <div>
-        <div class="section-tag">Comisión</div>
-        <h2 class="section-title" style="margin-bottom:0;">Protocolo y Experiencia del Ponente</h2>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header"><h3>Entregables</h3><p>Estado actual</p></div>
-        <div class="card-body">
-          <ul class="entregable-list">
-            <li><span class="entregable-name"><span class="dot"></span>Guion de bienvenida</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Formato de reconocimientos</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Lista de responsables</span><span class="badge badge-pending">Pendiente</span></li>
-            <li><span class="entregable-name"><span class="dot"></span>Guion de cierre institucional</span><span class="badge badge-pending">Pendiente</span></li>
-          </ul>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Avance general</span><span>0 / 4</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width:0%"></div></div>
+      <!-- ══ 5. PROTOCOLO Y EXPERIENCIA DEL PONENTE ══ -->
+      <div id="protocolo" style="margin-bottom:2rem;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1rem;">
+          <div style="width:4px; height:32px; background:#003865; border-radius:2px;"></div>
+          <div>
+            <div class="section-tag">Comisión</div>
+            <h2 class="section-title" style="margin-bottom:0;">Protocolo y Experiencia del Ponente</h2>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h3>Evidencias</h3><p>Archivos entregados a esta comisión</p></div>
-        <div class="card-body" style="padding:0;">
-          <div class="embed-wrap">
-            <div class="embed-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              <strong>Carpeta de Google Drive</strong>
-              <p>Pega aquí el src de la carpeta</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3>Entregables</h3>
+              <p>Estado actual</p>
+            </div>
+            <div class="card-body">
+              <ul class="entregable-list">
+                <!-- EDITAR: cambia badge-pending por badge-done cuando se entregue -->
+                <li><span class="entregable-name"><span class="dot"></span>Guion de bienvenida</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Formato de reconocimientos</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Lista de responsables</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Guion de cierre institucional</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+                <li><span class="entregable-name"><span class="dot"></span>Preguntas al Ponente</span><span
+                    class="badge badge-pending">Pendiente</span></li>
+              </ul>
+              <div class="progress-wrap">
+                <!-- EDITAR: cambia el width del fill y los textos según avance -->
+                <div class="progress-label"><span>Avance general</span><span>0 / 5</span></div>
+                <div class="progress-bg">
+                  <div class="progress-fill" style="width:0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div class="card" style="flex:1; overflow:hidden;">
+              <div class="card-header" style="display:flex; align-items:center; gap:10px;">
+                <!-- Ícono carpeta Drive -->
+                <svg width="22" height="22" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="flex-shrink:0;">
+                  <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 52H0c0 1.55.4 3.1 1.2 4.5z"
+                    fill="#0066DA" />
+                  <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z"
+                    fill="#00AC47" />
+                  <path
+                    d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60l5.55 10.5z"
+                    fill="#EA4335" />
+                  <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832D" />
+                  <path d="M60 52H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.5c1.6 0 3.15-.4 4.5-1.2z" fill="#2684FC" />
+                  <path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 60 52h27.45c0-1.55-.4-3.1-1.2-4.5z"
+                    fill="#FFBA00" />
+                </svg>
+                <div>
+                  <h3 style="margin:0;">Carpeta de Drive</h3>
+                  <p style="margin:0;">Evidencias de Protocolo y Experiencia del Ponente</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1XnQTpYWsjYA5tAugHyHEM6-_9QQe2ELa"
+                  target="_blank" rel="noopener"
+                  style="margin-left:auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:white; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:6px; padding:5px 10px; text-decoration:none; flex-shrink:0; transition:background 0.15s;"
+                  onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Abrir
+                </a>
+              </div>
+              <!-- Vista previa incrustada de la carpeta de Google Drive -->
+              <div style="
+                display:flex;
+                justify-content:center;
+                align-items:flex-start;
+                padding:12px;
+                background:#f8fafc;
+                border-top:1px solid #e5e7eb;
+              ">
+                <div style="
+                  width:100%;
+                  max-width:560px;
+                  border-radius:10px;
+                  overflow:hidden;
+                  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+                  border:1px solid #e0e7ef;
+                  background:#fff;
+                ">
+                  <!-- IFRAME DE DRIVE ↓ Reemplaza el ID en src para cambiar la carpeta -->
+                  <iframe src="https://drive.google.com/embeddedfolderview?id=1XnQTpYWsjYA5tAugHyHEM6-_9QQe2ELa#list"
+                    style="width:100%; height:340px; border:none; display:block;"
+                    title="Carpeta de Drive – Evidencias de Protocolo y Experiencia" loading="lazy" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-</div><!-- /container -->
-</div><!-- /section -->
+    </div><!-- /container -->
+  </div><!-- /section -->
 
-<footer>
-  <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
-  <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de Procesos</p>
-</footer>
+  <footer>
+    <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
+    <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de
+      Procesos</p>
+  </footer>
 
 </body>
+
 </html>

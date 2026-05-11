@@ -1,224 +1,1291 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galería de Evidencias · Panel de Ponentes BUAP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ── NAVEGACIÓN ── -->
-<nav>
-  <a class="nav-brand" href="index.html">
-    <div class="nav-escudo">B</div>
-    <div class="nav-name">
-      <strong>Panel de <span>Ponentes</span></strong>
-      <small>Benemérita Universidad Autónoma de Puebla</small>
+  <!-- ── NAVEGACIÓN ── -->
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <div class="nav-escudo">B</div>
+      <div class="nav-name">
+        <strong>Panel de <span>Ponentes</span></strong>
+        <small>Benemérita Universidad Autónoma de Puebla</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="comisiones.html">Comisiones</a>
+      <a href="galeria.html" class="active">Galería</a>
+      <a href="evaluacion.html">Evaluación</a>
     </div>
-  </a>
-  <div class="nav-links">
-    <a href="index.html">Inicio</a>
-    <a href="comisiones.html">Comisiones</a>
-    <a href="galeria.html" class="active">Galería</a>
-    <a href="evaluacion.html">Evaluación</a>
-  </div>
-</nav>
+  </nav>
 
-<!-- ── HEADER ── -->
-<div style="background:#003865; padding:2.5rem 2rem 2rem;">
-  <div class="container">
-    <div class="section-tag">Evidencias del evento</div>
-    <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Galería de evidencias</h1>
-    <p style="color:rgba(255,255,255,0.6); font-size:14px;">Todos los archivos del evento organizados por tipo y comisión. Puedes visualizarlos directamente aquí sin salir del sitio.</p>
+  <!-- ── HEADER ── -->
+  <div style="background:#003865; padding:2.5rem 2rem 2rem;">
+    <div class="container">
+      <div class="section-tag">Evidencias del evento</div>
+      <h1 style="color:white; font-size:28px; font-weight:800; margin-bottom:6px;">Galería de evidencias</h1>
+      <p style="color:rgba(255,255,255,0.6); font-size:14px;">Todos los archivos del evento organizados por tipo y
+        comisión. Puedes visualizarlos directamente aquí sin salir del sitio.</p>
+    </div>
   </div>
-</div>
 
-<!-- ── INSTRUCCIÓN: CÓMO AGREGAR EVIDENCIAS ──
+  <!-- ── INSTRUCCIÓN: CÓMO AGREGAR EVIDENCIAS ──
   Para añadir un archivo a la galería:
   1. Agrega un nuevo <div class="gallery-item"> copiando cualquiera de los ejemplos de abajo
   2. En data-tipo pon: pdf | img | video | doc
   3. En data-comision pon: doc-eval | gestion | logistica | comunicacion | protocolo
-  4. Reemplaza el embed-placeholder con: <iframe src="TU_LINK_DE_DRIVE" height="190"></iframe>
+  4. Reemplaza el embed-placeholder con: <iframe loading="lazy" src="TU_LINK_DE_DRIVE" height="190"></iframe>
      o con: <img src="TU_LINK_DE_IMAGEN" alt="descripción">
   5. Actualiza el título y la descripción en gallery-info
   ─────────────────────────────────────────── -->
 
-<section class="section">
-  <div class="container">
+  <section class="section">
+    <div class="container">
 
-    <!-- Filtros -->
-    <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start; margin-bottom:1.5rem;">
+      <!-- Filtros -->
+      <div style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start; margin-bottom:1.5rem;">
 
-      <div>
-        <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">TIPO DE ARCHIVO</div>
-        <div class="filter-bar" style="margin-bottom:0;" data-group="tipo">
-          <button class="filter-btn active" onclick="filtrar('tipo','todos',this)">Todos</button>
-          <button class="filter-btn" onclick="filtrar('tipo','pdf',this)">PDF</button>
-          <button class="filter-btn" onclick="filtrar('tipo','img',this)">Imágenes</button>
-          <button class="filter-btn" onclick="filtrar('tipo','video',this)">Video</button>
-          <button class="filter-btn" onclick="filtrar('tipo','doc',this)">Word / Doc</button>
-        </div>
-      </div>
-
-      <div>
-        <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">COMISIÓN</div>
-        <div class="filter-bar" style="margin-bottom:0;" data-group="comision">
-          <button class="filter-btn active" onclick="filtrar('comision','todas',this)">Todas</button>
-          <button class="filter-btn" onclick="filtrar('comision','doc-eval',this)">Doc. y Evaluación</button>
-          <button class="filter-btn" onclick="filtrar('comision','gestion',this)">Gestión Ponentes</button>
-          <button class="filter-btn" onclick="filtrar('comision','logistica',this)">Logística</button>
-          <button class="filter-btn" onclick="filtrar('comision','comunicacion',this)">Comunicación</button>
-          <button class="filter-btn" onclick="filtrar('comision','protocolo',this)">Protocolo</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contador -->
-    <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem;" id="contador">
-      Mostrando <strong id="num-visible">0</strong> evidencias
-    </div>
-
-    <!-- GRID DE EVIDENCIAS -->
-    <div class="gallery-grid" id="galeria">
-
-      <!-- ══ EJEMPLOS — REEMPLAZA CON TUS EVIDENCIAS REALES ══ -->
-
-      <!-- Ejemplo 1: PDF -->
-      <div class="gallery-item" data-tipo="pdf" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview" height="190"></iframe>
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/1-yD3LTcotx4FiRFghh6PtVnrTC2lTLOs/preview" height="190"></iframe> -->
-          <span class="type-tag badge-pdf">PDF</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Formato de evidencias</h4>
-          <p>Doc. y Evaluación · Antes del evento</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 2: Imagen -->
-      <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
-        <div class="gallery-preview">
-          <iframe src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"></iframe>
-          <!-- REEMPLAZA: <img src="https://drive.google.com/file/d/1GTRW5S4CiBDOH10W3ilnlgxDgodUOLt4/preview"> -->
-          <span class="type-tag badge-img">IMG</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Cartel de difusión</h4>
-          <p>Comunicación y Difusión · Antes</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 3: Video -->
-      <div class="gallery-item" data-tipo="video" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190" allow="autoplay"></iframe> -->
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            <strong>Video del evento</strong>
+        <div>
+          <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">TIPO DE
+            ARCHIVO</div>
+          <div class="filter-bar" style="margin-bottom:0;" data-group="tipo">
+            <button class="filter-btn active" onclick="filtrar('tipo','todos',this)">Todos</button>
+            <button class="filter-btn" onclick="filtrar('tipo','pdf',this)">PDF</button>
+            <button class="filter-btn" onclick="filtrar('tipo','img',this)">Imágenes</button>
+            <button class="filter-btn" onclick="filtrar('tipo','video',this)">Video</button>
+            <button class="filter-btn" onclick="filtrar('tipo','doc',this)">Word / Doc</button>
           </div>
-          <span class="type-tag badge-video">VIDEO</span>
         </div>
-        <div class="gallery-info">
-          <h4>Grabación de la ponencia</h4>
-          <p>Doc. y Evaluación · Durante</p>
-        </div>
-      </div>
 
-      <!-- Ejemplo 4: Word / Doc -->
-      <div class="gallery-item" data-tipo="doc" data-comision="gestion">
-        <div class="gallery-preview">
-          <!-- REEMPLAZA: <iframe src="https://drive.google.com/file/d/TU_ID/preview" height="190"></iframe> -->
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <strong>Documento Word</strong>
+        <div>
+          <div style="font-size:10px; color:#9CA3AF; font-weight:600; letter-spacing:1px; margin-bottom:6px;">COMISIÓN
           </div>
-          <span class="type-tag badge-doc">DOC</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Ficha del ponente</h4>
-          <p>Gestión de Ponentes · Antes</p>
-        </div>
-      </div>
-
-      <!-- Ejemplo 5: PDF -->
-      <div class="gallery-item" data-tipo="pdf" data-comision="logistica">
-        <div class="gallery-preview">
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <strong>Vista previa del PDF</strong>
+          <div class="filter-bar" style="margin-bottom:0;" data-group="comision">
+            <button class="filter-btn active" onclick="filtrar('comision','todas',this)">Todas</button>
+            <button class="filter-btn" onclick="filtrar('comision','doc-eval',this)">Doc. y Evaluación</button>
+            <button class="filter-btn" onclick="filtrar('comision','gestion',this)">Gestión Ponentes</button>
+            <button class="filter-btn" onclick="filtrar('comision','logistica',this)">Logística</button>
+            <button class="filter-btn" onclick="filtrar('comision','comunicacion',this)">Comunicación</button>
+            <button class="filter-btn" onclick="filtrar('comision','protocolo',this)">Protocolo</button>
           </div>
-          <span class="type-tag badge-pdf">PDF</span>
-        </div>
-        <div class="gallery-info">
-          <h4>Informe de presupuesto</h4>
-          <p>Logística y Operación · Antes</p>
         </div>
       </div>
 
-      <!-- Ejemplo 6: Imagen -->
-      <div class="gallery-item" data-tipo="img" data-comision="doc-eval">
-        <div class="gallery-preview">
-          <div class="embed-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <strong>Fotografía del evento</strong>
+      <!-- Contador -->
+      <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem;" id="contador">
+        Mostrando <strong id="num-visible">0</strong> evidencias
+      </div>
+
+      <!-- GRID DE EVIDENCIAS -->
+      <div class="gallery-grid" id="galeria">
+
+        <!-- ══ EVIDENCIAS REALES DEL EVENTO ══ -->
+
+        <!-- Imagen 1 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1rFMFYVKsDaNHkwcAddBjrh_kGxhl0StY/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
           </div>
-          <span class="type-tag badge-img">IMG</span>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 1</h4>
+            <p> · Durante el evento</p>
+          </div>
         </div>
-        <div class="gallery-info">
-          <h4>Registro de asistencia</h4>
-          <p>Doc. y Evaluación · Durante</p>
+
+        <!-- Imagen 2 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/10EX4ve45Tdq-_kAIPGB12bwTa1_N4fDA/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 2</h4>
+            <p> · Durante el evento</p>
+          </div>
         </div>
+
+        <!-- Imagen 3 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1-wf6rl_VjUH_Gglnq7yg5_gl45CDtrMr/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 3</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 4 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1YQENv4QGap0CEKanbwoIcIVPI4aREfu9/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 4</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 5 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1oi-wD5jkk6GchspBcVZZOZNgYTeo3npb/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 5</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 6 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1aWcY_ji24U4JSpZytwJuJFJ1gBS5KB_Y/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 6</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 7 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1ByHocJP2g51wnNWRBVfV2XZDzOXYHn4R/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 7</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 8 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1_OlEgQJ8HHc8q7C1Q9EGFHON1bVH7kNZ/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 8</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 9 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1u5UgIfmCSqNPyTQk8H4R03PagEcaahOT/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 9</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 10 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1-wJ_uVe_JoaKLWY3t2jHx2cFkJmG-QYm/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 10</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 11 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1MNaKeQQtvoRvXQHL_LOTeWztgCHrs_Ha/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 11</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 12 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1oezPf4ZdBe9q36qQKOz5NjuCBs3A1Xhk/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 12</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 13 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/162F8e8kQx9PIHL_t_6i4guKxseITw4wL/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 13</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 14 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1OA5svNzj2X5ElTI04TN2Pct_q3ZSNvO0/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 14</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 15 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1OA5svNzj2X5ElTI04TN2Pct_q3ZSNvO0/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 15</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 16 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1QIkMmI2SzGsx1E7FQyS2yuOK-w2UwWDX/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 16</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 17 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1UVPiyIB2dRrkd9Mp5WWl-yB8LOGoNCFW/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 17</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 18 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/11ZchH5WJ486oB28p6GTVDQE-Ap2YvnpY/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 18</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 19 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1DhtRtV2toGbk0mS6Rq9cnmOAPpS2ZqIT/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 19</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 20 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1do2CZvPsKjUdb0jLHFgg_6dF4c5aMaQB/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 20</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 21 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1DwHkTgrk1dJDzEFoYjZPjxOabBP3ZM6V/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 21</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 22 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1NZlhmi2tFP2v0PL_gS_htwGhP__YCUTz/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 22</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 23 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/17HSR_h_BP_YMZsdMNkWEJyWKWXs_kjqM/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 23</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 24 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1vayRai3BK20MoFBdQ22eum6iMdpYtDGU/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 24</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 25 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1zawdYfiB2P_UHtz7w2D0x8A2TFLROst8/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 25</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 26 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1WQw6ymFzpUcPyvXZMOAyXIG8TmJmWBE0/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 26</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 27 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1Jd0h2Le4--IQ8D49dw2Ji7hbDviLPByl/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 27</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 28 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1nQ856naF7cObjoP5sBTcsk15nFMJuJcw/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 28</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 29 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1rKS54gMdlIdsddcfBBsesj2blIvV31lG/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 29</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 30 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1MbsbnQMG_EkqlameBXWawfQV90jPYC81/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 30</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 31 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1Jic22NogII1gPe4Hr1BSWjjnYNQEr2T_/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 31</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 32 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1-i0nN3hFrBLFC_PppDYWtyTVUYXtFYuV/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 32</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 33 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/12ppJB2GDuCKNDnHAnomONbe4QO8eUWGK/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 33</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 34 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1dMqFksnbENPGrkO8pq_f7vT8Lcw3eAPL/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 34</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 35 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1rRjGNuxG8zi2K5_zzcKxMlb07WJM4GMM/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 35</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 36 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1aFS9CjKFz3s_31gfaaUV4F3grwEZRxVw/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 36</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 1 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1aeMzI3okqls8yHx-XedXOVD9OmhAOEyi/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 1</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 2 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1GocMLN2JfF6ReGbNbj1PrgMuB_NVN8Tw/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 2</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 3 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1y2QjT-1PurHHEoMz_DgbzZzMmYjjYfQq/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 3</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 4 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1LzM4mf9wIjvv4wqFWePH8N5C1HJD4iC8/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 4</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 5 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1c6Ltil8Kp7CFgcRu5zLpaPOIuuHfW0XF/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 5</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 6 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1mCDPAj2bDqJnYYr1KB8aqiWnToncJxPY/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 6</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 7 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1dXqTvvt_byNWgRRsnZFRpN3-6xJ-CLOQ/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 7</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 8 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/12FXmSV4m3aZpA9jikYpVsqOljOubpRtJ/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 8</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 9 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1ZvAgTioBocZF7uhQLY3yEprW1WfJlso7/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 9</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 10 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1cvn4vD9U2QiAZID8CFKvvAbNkjttLnF_/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 10</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Publicación 11 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/11DZys7l0wm0GuSN-gcgkKbkmBk3RmVf1/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Publicación 11</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 37 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1o__Hze2RfAfaTGH-LJfSIxMjidPy3n3r/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 37</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 49 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/163oAWV9uAABKFO9K98wPmgFsCFyL_AMG/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 38</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Imagen 39 -->
+        <div class="gallery-item" data-tipo="img" data-comision="">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1ecJtrdpILaj2qJsygUJrhVWbdI2ZwJKK/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Fotografía del evento 39</h4>
+            <p> · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- ══ CARTELES — COMUNICACIÓN ══ -->
+
+        <!-- Cartel 1 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/11cJep22zLWQeT34-NTlkudTwdQtjW7mM/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 1</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 2 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/17qMI8f6f0yeLoMjwoQmiz-9jVKc70PL9/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 2</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 3 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1upMeJ87LkBCvPgMvUHTZKSsy4K-6YXD0/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 3</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 4 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1hgm7BYGASFaxPlbft0TqMPeMggM06_IS/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 4</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 5 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1iWoxn7C-41VfENzDztS0QXtIiCmP1NvM/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 5</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 6 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1J5iUQIR_VCd14crBi1Ny39iMycXUVImB/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 6</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 7 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1zRkLrjnPeWklvEZkjO7R2psKbCFJ50fp/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 7</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 8 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1SgRTeb50ZwGM-sPXgxxgnzvEiwYI8eZ0/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 8</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- Cartel 9 -->
+        <div class="gallery-item" data-tipo="img" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1-6_ZY-v9kShSaddDGVEBmYtXQTcal1Aj/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-img">IMG</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Cartel 9</h4>
+            <p>Comunicación · Difusión del evento</p>
+          </div>
+        </div>
+
+        <!-- ══ VIDEOS — COMUNICACIÓN ══ -->
+
+        <!-- Video 1 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/167aVqzj79E66J1bMJ7VbWjq30DJkeihB/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 1</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1VnWYSiQQIdTkNjVGh2ZqD6BeBShbWvUP/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 2</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1OjLOUJh2EUSUFd3gWNtvc12U6_d_DDOz/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 3</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/18mFeUVYJf8Y0TRlEtt_ymE2Rzs7JJMzv/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 4</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1iusO1DN0tKuIMyHL3qXWg5IVDLqlngAr/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 5</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 6 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1xH-VpBRUXDrVwEBXMLvx5zcP7WeEQ9P3/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 6</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 7 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1--ZTF1r1UgpzStsC-O9Z93JRIMAifwDo/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 7</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 8 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1q2b9zp-MBaPr8zjonsz2oIk19mHVbu8R/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 8</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 9 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/15skOj7cGtJ9NTVH5UKbjDf1JOWl_Rv-O/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 9</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 10 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1kDglHx7plWB6nBj1v0HyNpvY8MFss3lv/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 10</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 11 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1QoPyxPlyqinFVQQ2-IAQTEYT8-cVdiYp/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 11</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 12 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1IdInRm6aRLTMBuOWze-Wi_WCG46hG41Y/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 12</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 13 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1uqWDVOzl5pW_kD_vxZNdRv4wEutDgAfw/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 13</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 14 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1li2mvSYcim4fr1JP_tgClQrMCWR8Iiuz/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 14</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 15 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1gFKyMAl4-C1U9cj9mcc2myXhyJcCdXGk/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 15</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 16 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1Ws1fyTbIeKdrVfPWUR-u6yekmofyM70q/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 16</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 17 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1XkPgli7bzAit5wubEDysh8dl5UBhebg3/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 17</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Video 18 -->
+        <div class="gallery-item" data-tipo="video" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1ReFwUtiEHnfWb3pytRNFZZkjikZ5ImEt/preview"
+              height="190" allow="autoplay"></iframe>
+            <span class="type-tag badge-video">VIDEO</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Video 18</h4>
+            <p>Comunicación · Durante el evento</p>
+          </div>
+        </div>
+
+        <!-- Hoja de cálculo - Comunicación -->
+        <div class="gallery-item" data-tipo="doc" data-comision="comunicacion">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://docs.google.com/spreadsheets/d/1_OI8FzCRUlBkpfrplLqxVTA0a89TZzuf/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Hoja de cálculo</h4>
+            <p>Comunicación · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- ══ DOCUMENTOS — GESTIÓN DE PONENTES ══ -->
+
+
+        <!-- Gestión Doc 2 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://docs.google.com/presentation/d/1D9LjSVMwg4K7ez2Qw_woKL8JGXsurtsT/embed"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Ficha del Ponente</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Gestión Doc 3 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://docs.google.com/document/d/11VlQjJ8RoeuFxUmG0-pmQjRuNDdekw7a/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Ficha técnica</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Gestión Presentación 1 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://docs.google.com/presentation/d/1Lxm-aylFoaAN1YhsuocC-_qnGaAaG19r/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Presentación 1</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Gestión Doc 3 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://docs.google.com/document/d/1yV9nmTPCGNQiPYF2QD9UGfMUSf3s-doF/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Preguntas guía</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://docs.google.com/presentation/d/1D9LjSVMwg4K7ez2Qw_woKL8JGXsurtsT/embed"
+              height="190" style="border: none; width: 100%;" allowfullscreen="true"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Presentación GESTA</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Gestión Hoja de cálculo -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://docs.google.com/spreadsheets/d/12Czgtkqq2wtHyRXkKLvZWM47X_v4U3XO/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Run 24 de Abril</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Gestión Doc 4 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="gestion">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://docs.google.com/document/d/1bu7SEgDt02Y61XOR_-e8sDyrUptWbejU/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Semblanza</h4>
+            <p>Gestión Ponentes · Documento de gestión</p>
+          </div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+
+      <!-- Estado vacío -->
+      <div id="vacio" style="display:none; text-align:center; padding:3rem; color:#9CA3AF;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          style="margin-bottom:10px; opacity:0.4;">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <p style="font-size:14px;">No hay evidencias para este filtro todavía.</p>
       </div>
 
-    </div><!-- /gallery-grid -->
+    </div><!-- /container -->
+  </section>
 
-    <!-- Estado vacío -->
-    <div id="vacio" style="display:none; text-align:center; padding:3rem; color:#9CA3AF;">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:10px; opacity:0.4;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <p style="font-size:14px;">No hay evidencias para este filtro todavía.</p>
-    </div>
+  <footer>
+    <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
+    <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de
+      Procesos</p>
+  </footer>
 
-  </div><!-- /container -->
-</section>
+  <script>
+    let tipoActivo = 'todos';
+    let comisionActiva = 'todas';
 
-<footer>
-  <p>Panel de Ponentes 2026 · <span>Benemérita Universidad Autónoma de Puebla</span></p>
-  <p style="margin-top:4px;">Comisión de Documentación y Evaluación · Maximiliano Covarrubias Carreón · Planeación de Procesos</p>
-</footer>
-
-<script>
-  let tipoActivo = 'todos';
-  let comisionActiva = 'todas';
-
-  function filtrar(dimension, valor, btn) {
-    if (dimension === 'tipo') {
-      tipoActivo = valor;
-      document.querySelectorAll('[data-group="tipo"] .filter-btn').forEach(b => b.classList.remove('active'));
-    } else {
-      comisionActiva = valor;
-      document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
+    function filtrar(dimension, valor, btn) {
+      if (dimension === 'tipo') {
+        tipoActivo = valor;
+        document.querySelectorAll('[data-group="tipo"] .filter-btn').forEach(b => b.classList.remove('active'));
+      } else {
+        comisionActiva = valor;
+        document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
+      }
+      btn.classList.add('active');
+      aplicarFiltros();
     }
-    btn.classList.add('active');
+
+    function aplicarFiltros() {
+      const items = document.querySelectorAll('.gallery-item');
+      let visibles = 0;
+      items.forEach(item => {
+        const tipoOk = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
+        const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
+        if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
+        else { item.classList.add('hidden'); }
+      });
+      document.getElementById('num-visible').textContent = visibles;
+      document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
+    }
+
     aplicarFiltros();
-  }
 
-  function aplicarFiltros() {
-    const items = document.querySelectorAll('.gallery-item');
-    let visibles = 0;
-    items.forEach(item => {
-      const tipoOk     = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
-      const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
-      if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
-      else { item.classList.add('hidden'); }
+    /* ── BOTÓN "ABRIR" PARA DOCUMENTOS ──
+       Para cada item de tipo doc, lee el src del iframe (/preview)
+       y genera un enlace que abre el documento en Google Docs.
+    ──────────────────────────────────────── */
+    document.querySelectorAll('.gallery-item[data-tipo="doc"]').forEach(item => {
+      const iframe = item.querySelector('iframe');
+      if (!iframe) return;
+
+      // Convertir URL /preview → /edit (o la URL base del doc)
+      const previewUrl = iframe.src || iframe.dataset.src || '';
+      const openUrl = previewUrl.replace('/preview', '/edit');
+
+      const info = item.querySelector('.gallery-info');
+      if (info && openUrl) {
+        const btn = document.createElement('a');
+        btn.href = openUrl;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        btn.className = 'btn-open-doc';
+        btn.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Abrir documento`;
+        info.appendChild(btn);
+      }
     });
-    document.getElementById('num-visible').textContent = visibles;
-    document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
-  }
-
-  aplicarFiltros();
-</script>
+  </script>
 
 </body>
+
 </html>
