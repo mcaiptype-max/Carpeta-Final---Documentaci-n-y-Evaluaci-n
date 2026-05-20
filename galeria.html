@@ -80,7 +80,9 @@
       </div>
 
       <!-- Contador -->
-      <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;" id="contador">
+      <div
+        style="font-size:12px; color:#9CA3AF; margin-bottom:1rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;"
+        id="contador">
         <span>Mostrando <strong id="num-visible">0</strong> evidencias</span>
         <span id="pagina-info" style="font-weight:600; color:#6B7280;"></span>
       </div>
@@ -1204,6 +1206,108 @@
           </div>
         </div>
 
+        <!-- ══ DOCUMENTOS — LOGÍSTICA Y OPERACIÓN ══ -->
+
+        <!-- Logística Doc 1 — Hoja de cálculo -->
+        <div class="gallery-item" data-tipo="doc" data-comision="logistica">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://docs.google.com/spreadsheets/d/1Zywcm5EOCZNr8yNoYk9aJrM4fnopvLXW/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Hoja de cálculo</h4>
+            <p>Logística · Documento de gestión</p>
+          </div>
+        </div>
+
+
+        <!-- Logística Doc 3 — Google Doc -->
+        <div class="gallery-item" data-tipo="doc" data-comision="logistica">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://docs.google.com/document/d/1szpB1DveFLafEU1eWCCBL0wTRgnmq2wMVBrFiPoj0mU/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Logística 2</h4>
+            <p>Logística · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Logística Doc 4 — Archivo Drive -->
+        <div class="gallery-item" data-tipo="doc" data-comision="logistica">
+          <div class="gallery-preview">
+            <iframe loading="lazy" src="https://drive.google.com/file/d/1yAB4Apdf7SWrT6_nvlzRoVhSgrNVovsH/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Logística 3</h4>
+            <p>Logística · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- ══ DOCUMENTOS — PROTOCOLO Y EXPERIENCIA DEL PONENTE ══ -->
+
+        <!-- Protocolo Doc 1 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="protocolo">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://drive.google.com/file/d/1VaJaOzLk0kP78jaYpgjxj2HFoWylaz6W/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Protocolo 1</h4>
+            <p>Protocolo · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Protocolo Doc 2 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="protocolo">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://drive.google.com/file/d/1bB21S_AFONsf0_1RyNi7KCTOpXzZ6t7y/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Protocolo 2</h4>
+            <p>Protocolo · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Protocolo Doc 3 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="protocolo">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://drive.google.com/file/d/1Tk5EEnGOEEZEgjUu0_if1IuQA4xX8gtl/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Protocolo 3</h4>
+            <p>Protocolo · Documento de gestión</p>
+          </div>
+        </div>
+
+        <!-- Protocolo Doc 4 -->
+        <div class="gallery-item" data-tipo="doc" data-comision="protocolo">
+          <div class="gallery-preview">
+            <iframe loading="lazy"
+              src="https://drive.google.com/file/d/197fF30_EzaF2EVwLfUZM4323F4vAOtcp/preview"
+              height="190"></iframe>
+            <span class="type-tag badge-doc">DOC</span>
+          </div>
+          <div class="gallery-info">
+            <h4>Documento Protocolo 4</h4>
+            <p>Protocolo · Documento de gestión</p>
+          </div>
+        </div>
+
       </div><!-- /gallery-grid -->
 
       <!-- Estado vacío -->
@@ -1256,21 +1360,25 @@
       font-family: inherit;
       user-select: none;
     }
+
     .pag-btn:hover:not(:disabled) {
       background: #F3F4F6;
       border-color: #003865;
       color: #003865;
     }
+
     .pag-btn.active {
       background: #003865;
       border-color: #003865;
       color: #fff;
-      box-shadow: 0 2px 8px rgba(0,56,101,0.25);
+      box-shadow: 0 2px 8px rgba(0, 56, 101, 0.25);
     }
+
     .pag-btn:disabled {
       opacity: 0.35;
       cursor: not-allowed;
     }
+
     .pag-dots {
       display: inline-flex;
       align-items: center;
@@ -1481,59 +1589,54 @@
     // Aplicar filtros iniciales (carga los primeros 12 iframes)
     aplicarFiltros();
 
-    /* ── SHIELD ANTI-BLOQUEO MÓVIL ────────────────────────────────────────
-       En dispositivos táctiles los <iframe> capturan los eventos touch y
-       bloquean el scroll de la página al deslizar sobre ellos.
-       Solución: colocamos una capa transparente (.iframe-shield) sobre
-       cada preview. El shield rastrea el gesto:
-         - Swipe vertical  → hace scroll de la página (pan-y nativo)
-         - Tap (< 250 ms)  → se elimina brevemente para permitir interacción
-                             con el contenido del iframe
-    ──────────────────────────────────────────────────────────────────────── */
+    /* ── SHIELD: abre el archivo al tocar la previsualización ──────────────
+       Los iframes tienen pointer-events:none → el dedo nunca queda atrapado
+       y la página scrollea libremente. El shield (pointer-events:auto)
+       recibe el toque y al detectar un tap corto abre el archivo en Drive.
+    ─────────────────────────────────────────────────────────────────────── */
     document.querySelectorAll('.gallery-preview').forEach(preview => {
+      const item = preview.closest('.gallery-item');
+      const iframe = preview.querySelector('iframe');
+
       const shield = document.createElement('div');
       shield.className = 'iframe-shield';
 
       let touchStartY = 0;
-      let touchStartX = 0;
       let touchStartTime = 0;
-      let scrollStartY = 0;
-      let isScrolling = false;
 
       shield.addEventListener('touchstart', e => {
-        const t = e.touches[0];
-        touchStartY    = t.clientY;
-        touchStartX    = t.clientX;
+        touchStartY = e.touches[0].clientY;
         touchStartTime = Date.now();
-        scrollStartY   = window.scrollY;
-        isScrolling    = false;
-      }, { passive: true });
-
-      shield.addEventListener('touchmove', e => {
-        const t = e.touches[0];
-        const dy = t.clientY - touchStartY;
-        const dx = t.clientX - touchStartX;
-
-        // Si el movimiento es predominantemente vertical → scroll de página
-        if (!isScrolling && Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 5) {
-          isScrolling = true;
-        }
-        if (isScrolling) {
-          window.scrollTo(0, scrollStartY - dy);
-        }
       }, { passive: true });
 
       shield.addEventListener('touchend', e => {
-        const elapsed = Date.now() - touchStartTime;
         const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+        const elapsed = Date.now() - touchStartTime;
 
-        // Si fue un tap rápido y sin desplazamiento → quitamos el shield
-        // brevemente para que el toque llegue al iframe
-        if (elapsed < 250 && dy < 10) {
-          shield.style.display = 'none';
-          setTimeout(() => { shield.style.display = ''; }, 400);
+        // Tap corto y sin desplazamiento → abrir el archivo en Drive
+        if (elapsed < 300 && dy < 12) {
+          const src = iframe ? (iframe.dataset.src || iframe.src || '') : '';
+          if (src) {
+            const viewUrl = src
+              .replace('/preview', '/view')
+              .replace('/embed?', '/view?')
+              .replace('/embed', '/view');
+            window.open(viewUrl, '_blank', 'noopener,noreferrer');
+          }
         }
       }, { passive: true });
+
+      // En escritorio: clic en el shield abre el archivo también
+      shield.addEventListener('click', () => {
+        const src = iframe ? (iframe.dataset.src || iframe.src || '') : '';
+        if (src) {
+          const viewUrl = src
+            .replace('/preview', '/view')
+            .replace('/embed?', '/view?')
+            .replace('/embed', '/view');
+          window.open(viewUrl, '_blank', 'noopener,noreferrer');
+        }
+      });
 
       preview.appendChild(shield);
     });

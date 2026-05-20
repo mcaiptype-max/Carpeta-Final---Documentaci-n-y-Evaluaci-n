@@ -329,17 +329,32 @@ nav {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;        /* Mantiene el recorte visual del área de previsualización */
-  border-radius: 10px 10px 0 0; /* Compensa la pérdida de clip del padre */
-  pointer-events: none;   /* CORRECCIÓN: la capa contenedora no bloquea clics propios */
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
 }
 
-/* CORRECCIÓN: pointer-events:auto permite interacción real con el iframe embebido */
+/* ── SHIELD: intercepta toques sobre iframes en móvil ──
+   pointer-events:auto lo hace el primer receptor de cualquier toque.
+   El iframe queda debajo con pointer-events:none, así el dedo nunca
+   queda atrapado y la página scrollea libremente. */
+.iframe-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  background: transparent;
+  pointer-events: auto;    /* Recibe todos los eventos de toque/ratón */
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;         /* Indica al usuario que el área es tocable */
+}
+
+/* Los iframes son solo vista previa — pointer-events:none impide que
+   capturen el toque en móvil y bloqueen el scroll de la página.
+   El shield (z-index superior) actua de tap target para abrir el archivo. */
 .gallery-preview iframe {
   width: 100%;
   height: 100%;
   border: none;
-  pointer-events: auto;   /* Habilitado: el usuario puede hacer clic e interactuar */
+  pointer-events: none;    /* CLAVE: el toque pasa al sistema de scroll, nunca al iframe */
   position: relative;
   z-index: 10;
 }
