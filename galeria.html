@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -80,8 +80,9 @@
       </div>
 
       <!-- Contador -->
-      <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem;" id="contador">
-        Mostrando <strong id="num-visible">0</strong> evidencias
+      <div style="font-size:12px; color:#9CA3AF; margin-bottom:1rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;" id="contador">
+        <span>Mostrando <strong id="num-visible">0</strong> evidencias</span>
+        <span id="pagina-info" style="font-weight:600; color:#6B7280;"></span>
       </div>
 
       <!-- GRID DE EVIDENCIAS -->
@@ -1215,6 +1216,17 @@
         <p style="font-size:14px;">No hay evidencias para este filtro todavía.</p>
       </div>
 
+      <!-- ── PAGINACIÓN ── -->
+      <div id="paginacion-wrap" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 2rem;
+        padding: 1rem 0 0.5rem;
+        flex-wrap: wrap;
+      "></div>
+
     </div><!-- /container -->
   </section>
 
@@ -1224,9 +1236,55 @@
       Procesos</p>
   </footer>
 
+  <style>
+    /* ── ESTILOS DE PAGINACIÓN ── */
+    .pag-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 8px;
+      background: #fff;
+      color: #374151;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+      user-select: none;
+    }
+    .pag-btn:hover:not(:disabled) {
+      background: #F3F4F6;
+      border-color: #003865;
+      color: #003865;
+    }
+    .pag-btn.active {
+      background: #003865;
+      border-color: #003865;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,56,101,0.25);
+    }
+    .pag-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .pag-dots {
+      display: inline-flex;
+      align-items: center;
+      color: #9CA3AF;
+      font-size: 14px;
+      padding: 0 4px;
+    }
+  </style>
+
   <script>
+    const POR_PAGINA = 12;
     let tipoActivo = 'todos';
     let comisionActiva = 'todas';
+    let paginaActual = 1;
 
     function filtrar(dimension, valor, btn) {
       if (dimension === 'tipo') {
@@ -1237,20 +1295,128 @@
         document.querySelectorAll('[data-group="comision"] .filter-btn').forEach(b => b.classList.remove('active'));
       }
       btn.classList.add('active');
+      paginaActual = 1; // resetear a primera página al filtrar
       aplicarFiltros();
     }
 
     function aplicarFiltros() {
-      const items = document.querySelectorAll('.gallery-item');
-      let visibles = 0;
-      items.forEach(item => {
+      const todosItems = document.querySelectorAll('.gallery-item');
+
+      // Primero: determinar qué items pasan el filtro
+      const itemsFiltrados = [];
+      todosItems.forEach(item => {
         const tipoOk = tipoActivo === 'todos' || item.dataset.tipo === tipoActivo;
         const comisionOk = comisionActiva === 'todas' || item.dataset.comision === comisionActiva;
-        if (tipoOk && comisionOk) { item.classList.remove('hidden'); visibles++; }
-        else { item.classList.add('hidden'); }
+        if (tipoOk && comisionOk) {
+          itemsFiltrados.push(item);
+        }
       });
-      document.getElementById('num-visible').textContent = visibles;
-      document.getElementById('vacio').style.display = visibles === 0 ? 'block' : 'none';
+
+      const total = itemsFiltrados.length;
+      const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
+
+      // Clamp página actual
+      if (paginaActual > totalPaginas) paginaActual = totalPaginas;
+      if (paginaActual < 1) paginaActual = 1;
+
+      const inicio = (paginaActual - 1) * POR_PAGINA;
+      const fin = inicio + POR_PAGINA;
+
+      // Mostrar/ocultar todos los items
+      todosItems.forEach(item => item.classList.add('hidden'));
+      itemsFiltrados.forEach((item, i) => {
+        if (i >= inicio && i < fin) {
+          item.classList.remove('hidden');
+        }
+      });
+
+      // Actualizar contador
+      const visiblesAhora = Math.min(POR_PAGINA, total - inicio);
+      document.getElementById('num-visible').textContent = total;
+      const infoEl = document.getElementById('pagina-info');
+      if (total > 0) {
+        infoEl.textContent = `Página ${paginaActual} de ${totalPaginas} · mostrando ${Math.max(0, inicio + 1)}–${Math.min(fin, total)}`;
+      } else {
+        infoEl.textContent = '';
+      }
+
+      // Estado vacío
+      document.getElementById('vacio').style.display = total === 0 ? 'block' : 'none';
+
+      // Renderizar paginación
+      renderizarPaginacion(totalPaginas);
+    }
+
+    function irAPagina(n) {
+      paginaActual = n;
+      aplicarFiltros();
+      // Scroll suave hasta la galería
+      document.getElementById('galeria').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderizarPaginacion(totalPaginas) {
+      const wrap = document.getElementById('paginacion-wrap');
+      wrap.innerHTML = '';
+
+      if (totalPaginas <= 1) return;
+
+      // Botón anterior
+      const prev = document.createElement('button');
+      prev.className = 'pag-btn';
+      prev.innerHTML = '&#8592; Ant';
+      prev.disabled = paginaActual === 1;
+      prev.onclick = () => irAPagina(paginaActual - 1);
+      wrap.appendChild(prev);
+
+      // Números de página con elipsis inteligente
+      const paginas = generarRangoPaginas(paginaActual, totalPaginas);
+      paginas.forEach(p => {
+        if (p === '...') {
+          const dots = document.createElement('span');
+          dots.className = 'pag-dots';
+          dots.textContent = '…';
+          wrap.appendChild(dots);
+        } else {
+          const btn = document.createElement('button');
+          btn.className = 'pag-btn' + (p === paginaActual ? ' active' : '');
+          btn.textContent = p;
+          btn.onclick = () => irAPagina(p);
+          wrap.appendChild(btn);
+        }
+      });
+
+      // Botón siguiente
+      const next = document.createElement('button');
+      next.className = 'pag-btn';
+      next.innerHTML = 'Sig &#8594;';
+      next.disabled = paginaActual === totalPaginas;
+      next.onclick = () => irAPagina(paginaActual + 1);
+      wrap.appendChild(next);
+    }
+
+    function generarRangoPaginas(actual, total) {
+      if (total <= 7) {
+        return Array.from({ length: total }, (_, i) => i + 1);
+      }
+      const pages = [];
+      if (actual <= 4) {
+        for (let i = 1; i <= 5; i++) pages.push(i);
+        pages.push('...');
+        pages.push(total);
+      } else if (actual >= total - 3) {
+        pages.push(1);
+        pages.push('...');
+        for (let i = total - 4; i <= total; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        pages.push('...');
+        pages.push(actual - 1);
+        pages.push(actual);
+        pages.push(actual + 1);
+        pages.push('...');
+        pages.push(total);
+      }
+      return pages;
     }
 
     aplicarFiltros();
