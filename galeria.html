@@ -1322,11 +1322,24 @@
       const inicio = (paginaActual - 1) * POR_PAGINA;
       const fin = inicio + POR_PAGINA;
 
-      // Mostrar/ocultar todos los items
-      todosItems.forEach(item => item.classList.add('hidden'));
+      // ── LAZY LOADING MANUAL ──
+      // Ocultar todos y descargar los videos (liberan recursos al salir de vista)
+      todosItems.forEach(item => {
+        item.classList.add('hidden');
+        if (item.dataset.tipo === 'video') {
+          const iframe = item.querySelector('iframe');
+          if (iframe && iframe.src) iframe.src = '';
+        }
+      });
+
+      // Mostrar solo la página actual y cargar su iframe si aún no está cargado
       itemsFiltrados.forEach((item, i) => {
         if (i >= inicio && i < fin) {
           item.classList.remove('hidden');
+          const iframe = item.querySelector('iframe');
+          if (iframe && !iframe.src && iframe.dataset.src) {
+            iframe.src = iframe.dataset.src;
+          }
         }
       });
 
@@ -1419,19 +1432,33 @@
       return pages;
     }
 
-    aplicarFiltros();
+    /* ── INIT: LAZY LOADING MANUAL ──────────────────────────────────────
+       Convierte todos los iframes de galería de src → data-src antes de
+       que el navegador los cargue. Los iframes sin data-src aún conservan
+       su src original como fallback.
+    ──────────────────────────────────────────────────────────────────── */
+    document.querySelectorAll('.gallery-item iframe').forEach(iframe => {
+      // Si el iframe ya tiene data-src (añadido manualmente) no hacer nada
+      if (iframe.dataset.src) return;
+      // Mover src a data-src y limpiar src para bloquear carga anticipada
+      if (iframe.src) {
+        iframe.dataset.src = iframe.src;
+        iframe.removeAttribute('src');
+        // Eliminar loading="lazy" nativo ya que usamos nuestra propia lógica
+        iframe.removeAttribute('loading');
+      }
+    });
 
-    /* ── BOTÓN "ABRIR" PARA DOCUMENTOS ──
-       Para cada item de tipo doc, lee el src del iframe (/preview)
-       y genera un enlace que abre el documento en Google Docs.
-    ──────────────────────────────────────── */
+    /* ── BOTÓN "ABRIR" PARA DOCUMENTOS ──────────────────────────────────
+       Lee data-src (no src, que puede estar vacío) para construir el link.
+    ──────────────────────────────────────────────────────────────────── */
     document.querySelectorAll('.gallery-item[data-tipo="doc"]').forEach(item => {
       const iframe = item.querySelector('iframe');
       if (!iframe) return;
 
-      // Convertir URL /preview → /edit (o la URL base del doc)
-      const previewUrl = iframe.src || iframe.dataset.src || '';
-      const openUrl = previewUrl.replace('/preview', '/edit');
+      // data-src tiene la URL original; iframe.src puede estar vacío
+      const previewUrl = iframe.dataset.src || iframe.src || '';
+      const openUrl = previewUrl.replace('/preview', '/edit').replace('/embed', '/edit');
 
       const info = item.querySelector('.gallery-info');
       if (info && openUrl) {
@@ -1449,6 +1476,66 @@
           Abrir documento`;
         info.appendChild(btn);
       }
+    });
+
+    // Aplicar filtros iniciales (carga los primeros 12 iframes)
+    aplicarFiltros();
+
+    /* ── SHIELD ANTI-BLOQUEO MÓVIL ────────────────────────────────────────
+       En dispositivos táctiles los <iframe> capturan los eventos touch y
+       bloquean el scroll de la página al deslizar sobre ellos.
+       Solución: colocamos una capa transparente (.iframe-shield) sobre
+       cada preview. El shield rastrea el gesto:
+         - Swipe vertical  → hace scroll de la página (pan-y nativo)
+         - Tap (< 250 ms)  → se elimina brevemente para permitir interacción
+                             con el contenido del iframe
+    ──────────────────────────────────────────────────────────────────────── */
+    document.querySelectorAll('.gallery-preview').forEach(preview => {
+      const shield = document.createElement('div');
+      shield.className = 'iframe-shield';
+
+      let touchStartY = 0;
+      let touchStartX = 0;
+      let touchStartTime = 0;
+      let scrollStartY = 0;
+      let isScrolling = false;
+
+      shield.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        touchStartY    = t.clientY;
+        touchStartX    = t.clientX;
+        touchStartTime = Date.now();
+        scrollStartY   = window.scrollY;
+        isScrolling    = false;
+      }, { passive: true });
+
+      shield.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        const dy = t.clientY - touchStartY;
+        const dx = t.clientX - touchStartX;
+
+        // Si el movimiento es predominantemente vertical → scroll de página
+        if (!isScrolling && Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 5) {
+          isScrolling = true;
+        }
+        if (isScrolling) {
+          window.scrollTo(0, scrollStartY - dy);
+        }
+      }, { passive: true });
+
+      shield.addEventListener('touchend', e => {
+        const elapsed = Date.now() - touchStartTime;
+        const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+
+        // Si fue un tap rápido y sin desplazamiento → quitamos el shield
+        // brevemente para que el toque llegue al iframe
+        if (elapsed < 250 && dy < 10) {
+          shield.style.display = 'none';
+          setTimeout(() => { shield.style.display = ''; }, 400);
+        }
+      }, { passive: true });
+
+      preview.appendChild(shield);
     });
   </script>
 
