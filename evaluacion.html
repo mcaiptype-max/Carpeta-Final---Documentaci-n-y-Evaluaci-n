@@ -48,19 +48,19 @@
       <div class="stats-row" style="margin-bottom:2.5rem;">
         <!-- EDITAR: reemplaza los valores con los datos reales tras el evento -->
         <div class="stat-box">
-          <div class="n cyan">—</div>
+          <div class="n cyan">4.5/5 </div>
           <div class="l">Satisfacción general</div>
         </div>
         <div class="stat-box">
-          <div class="n">—</div>
-          <div class="l">Asistentes</div>
+          <div class="n">24</div>
+          <div class="l">Asistentes del Salon</div>
         </div>
         <div class="stat-box">
-          <div class="n">—</div>
+          <div class="n">+200</div>
           <div class="l">Evidencias totales</div>
         </div>
         <div class="stat-box">
-          <div class="n">—</div>
+          <div class="n">25/29</div>
           <div class="l">Entregables completados</div>
         </div>
       </div>
@@ -81,11 +81,15 @@
 
         <!-- COLUMNA IZQUIERDA: acordeón preguntas -->
         <div>
-          <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid #00B5E2; padding-bottom:5px; margin-bottom:10px;">
+          <div
+            style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid #00B5E2; padding-bottom:5px; margin-bottom:10px;">
             <span style="font-size:14px; font-weight:700; color:#003865;">Resultados por pregunta</span>
             <button id="sq-toggle-all" onclick="toggleAllSq()"
               style="display:inline-flex; align-items:center; gap:5px; background:rgba(0,56,101,0.07); border:0.5px solid #CBD5E1; border-radius:7px; padding:4px 12px; font-size:11px; font-weight:600; color:#003865; cursor:pointer; transition:background 0.15s;">
-              <svg id="sq-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+              <svg id="sq-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round">
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
               <span id="sq-toggle-label">Cerrar todo</span>
             </button>
           </div>
@@ -94,7 +98,7 @@
             function toggleAllSq() {
               var entries = document.querySelectorAll('.sq-entry');
               sqAllOpen = !sqAllOpen;
-              entries.forEach(function(e) {
+              entries.forEach(function (e) {
                 if (sqAllOpen) { e.classList.add('open'); }
                 else { e.classList.remove('open'); }
               });
@@ -105,1189 +109,1564 @@
           </script>
           <div id="survey-list" style="display:flex; flex-direction:column; gap:10px;">
 
-        <!-- P1 -->
-        <div class="sq-entry">
-          <div class="sq-header" onclick="toggleSq(this)">
-            <span class="sq-titulo">Proceso de registro al evento</span>
-            <span class="sq-score">4.8 / 5</span>
-            <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
-          </div>
-          <div class="sq-body">
-            <p class="sq-question">¿Cómo calificarías la facilidad del proceso de registro?</p>
-            <div class="sq-bars">
-              <div class="sq-bar-row"><span class="sq-label">Rápido y sencillo</span><div class="sq-track"><div class="sq-fill" style="width:52.4%"></div></div><span class="sq-pct">52.4%</span></div>
-              <div class="sq-bar-row"><span class="sq-label">Sí</span><div class="sq-track"><div class="sq-fill" style="width:47.6%"></div></div><span class="sq-pct">47.6%</span></div>
+            <!-- P1 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Proceso de registro al evento</span>
+                <span class="sq-score">4.8 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿Cómo calificarías la facilidad del proceso de registro?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">Rápido y sencillo</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:52.4%"></div>
+                    </div><span class="sq-pct">52.4%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">Sí</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:47.6%"></div>
+                    </div><span class="sq-pct">47.6%</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- P2 -->
+            <!-- P2 -->
 
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Horario y duración del panel</span>
-        <span class="sq-score sq-score-yes">100% Sí</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿El horario y la duración del panel fueron adecuados?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">Sí</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:100%"></div>
-            </div><span class="sq-pct">100%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">No</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:0%"></div>
-            </div><span class="sq-pct">0%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Horario y duración del panel</span>
+                <span class="sq-score sq-score-yes">100% Sí</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿El horario y la duración del panel fueron adecuados?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">Sí</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:100%"></div>
+                    </div><span class="sq-pct">100%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">No</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:0%"></div>
+                    </div><span class="sq-pct">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P3 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Calidad de audio y visibilidad</span>
-        <span class="sq-score">4.5 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿Cómo calificarías la calidad del audio y la visibilidad de las presentaciones?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:61.9%"></div>
-            </div><span class="sq-pct">61.9%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:28.6%"></div>
-            </div><span class="sq-pct">28.6%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:9.5%"></div>
-            </div><span class="sq-pct">9.5%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:0%"></div>
-            </div><span class="sq-pct">0%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:0%"></div>
-            </div><span class="sq-pct">0%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P3 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Calidad de audio y visibilidad</span>
+                <span class="sq-score">4.5 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿Cómo calificarías la calidad del audio y la visibilidad de las presentaciones?
+                </p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:61.9%"></div>
+                    </div><span class="sq-pct">61.9%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:28.6%"></div>
+                    </div><span class="sq-pct">28.6%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:9.5%"></div>
+                    </div><span class="sq-pct">9.5%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:0%"></div>
+                    </div><span class="sq-pct">0%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:0%"></div>
+                    </div><span class="sq-pct">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P4 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Difusión y comunicación previa</span>
-        <span class="sq-score">3.8 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿La difusión y comunicación previa al evento fue clara y oportuna?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:38.1%"></div>
-            </div><span class="sq-pct">38.1%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:23.8%"></div>
-            </div><span class="sq-pct">23.8%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:23.8%"></div>
-            </div><span class="sq-pct">23.8%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:9.5%"></div>
-            </div><span class="sq-pct">9.5%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P4 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Difusión y comunicación previa</span>
+                <span class="sq-score">3.8 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿La difusión y comunicación previa al evento fue clara y oportuna?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:38.1%"></div>
+                    </div><span class="sq-pct">38.1%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:23.8%"></div>
+                    </div><span class="sq-pct">23.8%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:23.8%"></div>
+                    </div><span class="sq-pct">23.8%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:9.5%"></div>
+                    </div><span class="sq-pct">9.5%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P5 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Dominio del tema de expositores</span>
-        <span class="sq-score">4.7 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿Cómo calificarías el nivel de dominio del tema de los expositores?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:81%"></div>
-            </div><span class="sq-pct">81%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:9.5%"></div>
-            </div><span class="sq-pct">9.5%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:0%"></div>
-            </div><span class="sq-pct">0%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P5 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Dominio del tema de expositores</span>
+                <span class="sq-score">4.7 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿Cómo calificarías el nivel de dominio del tema de los expositores?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:81%"></div>
+                    </div><span class="sq-pct">81%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:9.5%"></div>
+                    </div><span class="sq-pct">9.5%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">2 ★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:0%"></div>
+                    </div><span class="sq-pct">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P6 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Claridad y profesionalismo de ponentes</span>
-        <span class="sq-score">4.6 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿Los ponentes se expresaron de manera clara y profesional?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:76.2%"></div>
-            </div><span class="sq-pct">76.2%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:14.3%"></div>
-            </div><span class="sq-pct">14.3%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P6 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Claridad y profesionalismo de ponentes</span>
+                <span class="sq-score">4.6 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿Los ponentes se expresaron de manera clara y profesional?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:76.2%"></div>
+                    </div><span class="sq-pct">76.2%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:14.3%"></div>
+                    </div><span class="sq-pct">14.3%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P7 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Contenido innovador y actualizado</span>
-        <span class="sq-score">4.8 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿El contenido presentado fue innovador y actualizado?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:85.7%"></div>
-            </div><span class="sq-pct">85.7%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:9.5%"></div>
-            </div><span class="sq-pct">9.5%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P7 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Contenido innovador y actualizado</span>
+                <span class="sq-score">4.8 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿El contenido presentado fue innovador y actualizado?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:85.7%"></div>
+                    </div><span class="sq-pct">85.7%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:9.5%"></div>
+                    </div><span class="sq-pct">9.5%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">3 ★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P8 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Alineación con tu carrera</span>
-        <span class="sq-score">4.7 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿Qué tanto se alinearon los temas tratados con tu carrera?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:81%"></div>
-            </div><span class="sq-pct">81%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:14.3%"></div>
-            </div><span class="sq-pct">14.3%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P8 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Alineación con tu carrera</span>
+                <span class="sq-score">4.7 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿Qué tanto se alinearon los temas tratados con tu carrera?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:81%"></div>
+                    </div><span class="sq-pct">81%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:14.3%"></div>
+                    </div><span class="sq-pct">14.3%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P9 -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Sesión de preguntas y respuestas</span>
-        <span class="sq-score">4.5 / 5</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">¿La sesión de preguntas y respuestas permitió profundizar en los temas de tu interés?</p>
-        <div class="sq-bars">
-          <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:66.7%"></div>
-            </div><span class="sq-pct">66.7%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:28.6%"></div>
-            </div><span class="sq-pct">28.6%</span>
-          </div>
-          <div class="sq-bar-row"><span class="sq-label">1 ★</span>
-            <div class="sq-track">
-              <div class="sq-fill" style="width:4.8%"></div>
-            </div><span class="sq-pct">4.8%</span>
-          </div>
-        </div>
-      </div>
-    </div>
+            <!-- P9 -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Sesión de preguntas y respuestas</span>
+                <span class="sq-score">4.5 / 5</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">¿La sesión de preguntas y respuestas permitió profundizar en los temas de tu
+                  interés?</p>
+                <div class="sq-bars">
+                  <div class="sq-bar-row"><span class="sq-label">5 ★★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:66.7%"></div>
+                    </div><span class="sq-pct">66.7%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">4 ★★★★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:28.6%"></div>
+                    </div><span class="sq-pct">28.6%</span>
+                  </div>
+                  <div class="sq-bar-row"><span class="sq-label">1 ★</span>
+                    <div class="sq-track">
+                      <div class="sq-fill" style="width:4.8%"></div>
+                    </div><span class="sq-pct">4.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- P10 – Comentarios -->
-    <div class="sq-entry">
-      <div class="sq-header" onclick="toggleSq(this)">
-        <span class="sq-titulo">Comentarios y sugerencias</span>
-        <span class="sq-score" style="background:rgba(0,56,101,0.08); color:#003865;">17 comentarios</span>
-        <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-      </div>
-      <div class="sq-body">
-        <p class="sq-question">Comentarios y sugerencias de los asistentes:</p>
+            <!-- P10 – Comentarios -->
+            <div class="sq-entry">
+              <div class="sq-header" onclick="toggleSq(this)">
+                <span class="sq-titulo">Comentarios y sugerencias</span>
+                <span class="sq-score" style="background:rgba(0,56,101,0.08); color:#003865;">17 comentarios</span>
+                <svg class="sq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+              <div class="sq-body">
+                <p class="sq-question">Comentarios y sugerencias de los asistentes:</p>
 
-        <!-- Paginación de comentarios -->
-        <div id="cmt-container" style="position:relative; min-height:120px;">
-          <!-- Los comentarios se renderizan por JS -->
-          <div id="cmt-page" style="display:flex; flex-direction:column; gap:7px;"></div>
-        </div>
+                <!-- Paginación de comentarios -->
+                <div id="cmt-container" style="position:relative; min-height:120px;">
+                  <!-- Los comentarios se renderizan por JS -->
+                  <div id="cmt-page" style="display:flex; flex-direction:column; gap:7px;"></div>
+                </div>
 
-        <!-- Controles paginación -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px;">
-          <button id="cmt-prev" onclick="cmtNav(-1)"
-            style="background:#003865; color:white; border:none; border-radius:7px; padding:5px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:opacity .15s;">
-            ‹ Anterior
-          </button>
-          <span id="cmt-indicator" style="font-size:11px; color:#6B7280; font-weight:600;"></span>
-          <button id="cmt-next" onclick="cmtNav(1)"
-            style="background:#003865; color:white; border:none; border-radius:7px; padding:5px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:opacity .15s;">
-            Siguiente ›
-          </button>
-        </div>
+                <!-- Controles paginación -->
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px;">
+                  <button id="cmt-prev" onclick="cmtNav(-1)"
+                    style="background:#003865; color:white; border:none; border-radius:7px; padding:5px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:opacity .15s;">
+                    ‹ Anterior
+                  </button>
+                  <span id="cmt-indicator" style="font-size:11px; color:#6B7280; font-weight:600;"></span>
+                  <button id="cmt-next" onclick="cmtNav(1)"
+                    style="background:#003865; color:white; border:none; border-radius:7px; padding:5px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:opacity .15s;">
+                    Siguiente ›
+                  </button>
+                </div>
 
-        <script>
-          (function () {
-            const comentarios = [
-              "Hay que mejorar la comunicación entre todos :)",
-              "todo bien, yo lo organicé",
-              "A mi parecer todo estuvo excelente",
-              "Difundir el evento con una semana de antelación",
-              "Todo bn",
-              "muy bueno",
-              "Nada",
-              "Ninguno",
-              "menores ruidos exteriores",
-              "Todo excelente 👌",
-              "Todo bien",
-              "estuvo en orden y todo muy bien",
-              "Todo bien",
-              "ninguno",
-              "No",
-              "Me gustó",
-              "sin comentarios adicionales"
-            ];
-            const PER_PAGE = 5;
-            let page = 0;
-            const total = Math.ceil(comentarios.length / PER_PAGE);
+                <script>
+                  (function () {
+                    const comentarios = [
+                      "Hay que mejorar la comunicación entre todos :)",
+                      "todo bien, yo lo organicé",
+                      "A mi parecer todo estuvo excelente",
+                      "Difundir el evento con una semana de antelación",
+                      "Todo bn",
+                      "muy bueno",
+                      "Nada",
+                      "Ninguno",
+                      "menores ruidos exteriores",
+                      "Todo excelente 👌",
+                      "Todo bien",
+                      "estuvo en orden y todo muy bien",
+                      "Todo bien",
+                      "ninguno",
+                      "No",
+                      "Me gustó",
+                      "sin comentarios adicionales"
+                    ];
+                    const PER_PAGE = 5;
+                    let page = 0;
+                    const total = Math.ceil(comentarios.length / PER_PAGE);
 
-            function render() {
-              const start = page * PER_PAGE;
-              const slice = comentarios.slice(start, start + PER_PAGE);
-              const container = document.getElementById('cmt-page');
-              container.innerHTML = slice.map(c =>
-                `<div class="sq-comment">${c}</div>`
-              ).join('');
-              document.getElementById('cmt-indicator').textContent =
-                `Página ${page + 1} de ${total}`;
-              document.getElementById('cmt-prev').style.opacity = page === 0 ? '0.35' : '1';
-              document.getElementById('cmt-prev').disabled = page === 0;
-              document.getElementById('cmt-next').style.opacity = page === total - 1 ? '0.35' : '1';
-              document.getElementById('cmt-next').disabled = page === total - 1;
-            }
+                    function render() {
+                      const start = page * PER_PAGE;
+                      const slice = comentarios.slice(start, start + PER_PAGE);
+                      const container = document.getElementById('cmt-page');
+                      container.innerHTML = slice.map(c =>
+                        `<div class="sq-comment">${c}</div>`
+                      ).join('');
+                      document.getElementById('cmt-indicator').textContent =
+                        `Página ${page + 1} de ${total}`;
+                      document.getElementById('cmt-prev').style.opacity = page === 0 ? '0.35' : '1';
+                      document.getElementById('cmt-prev').disabled = page === 0;
+                      document.getElementById('cmt-next').style.opacity = page === total - 1 ? '0.35' : '1';
+                      document.getElementById('cmt-next').disabled = page === total - 1;
+                    }
 
-            window.cmtNav = function (dir) {
-              page = Math.max(0, Math.min(total - 1, page + dir));
-              render();
-            };
+                    window.cmtNav = function (dir) {
+                      page = Math.max(0, Math.min(total - 1, page + dir));
+                      render();
+                    };
 
-            document.addEventListener('DOMContentLoaded', render);
-          })();
-        </script>
-      </div>
-    </div>
+                    document.addEventListener('DOMContentLoaded', render);
+                  })();
+                </script>
+              </div>
+            </div>
 
-    </div><!-- /survey-list -->
+          </div><!-- /survey-list -->
         </div><!-- /col-izquierda -->
 
         <!-- COLUMNA DERECHA: 3 documentos embebidos -->
         <div style="display:flex; flex-direction:column; gap:14px;">
 
-          <div style="font-size:14px; font-weight:700; color:#003865; margin-bottom:2px; border-bottom:2px solid #00B5E2; padding-bottom:5px; display:inline-block;">Documentos de la encuesta</div>
+          <div
+            style="font-size:14px; font-weight:700; color:#003865; margin-bottom:2px; border-bottom:2px solid #00B5E2; padding-bottom:5px; display:inline-block;">
+            Documentos de la encuesta</div>
 
           <!-- Documento 1 -->
-          <div style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
+          <div
+            style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
             <div style="background:#003865; padding:8px 12px; display:flex; align-items:center; gap:7px;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
               <span style="font-size:11px; font-weight:600; color:white;">Documento 1</span>
             </div>
-            <!-- EDITAR: reemplaza el div de abajo por el iframe cuando tengas el src -->
-            <div class="embed-placeholder" style="flex:1; border-radius:0; padding:20px 0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <strong style="font-size:12px;">Encuesta 1</strong>
-              <p style="font-size:10px;">Pega el src de Drive aquí</p>
-            </div>
-            <!-- <iframe src="https://drive.google.com/file/d/TU_ID_1/preview" width="100%" height="180" style="border:none; display:block;"></iframe> -->
+            <iframe src="https://docs.google.com/document/d/12pVdjj9wDAnczXDTDgCaHFWgt7UMElD_/preview" width="100%"
+              height="180" style="border:none; display:block;"></iframe>
           </div>
 
           <!-- Documento 2 -->
-          <div style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
+          <div
+            style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
             <div style="background:#003865; padding:8px 12px; display:flex; align-items:center; gap:7px;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
               <span style="font-size:11px; font-weight:600; color:white;">Documento 2</span>
             </div>
-            <!-- EDITAR: reemplaza el div de abajo por el iframe cuando tengas el src -->
-            <div class="embed-placeholder" style="flex:1; border-radius:0; padding:20px 0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <strong style="font-size:12px;">Encuesta 2</strong>
-              <p style="font-size:10px;">Pega el src de Drive aquí</p>
-            </div>
-            <!-- <iframe src="https://drive.google.com/file/d/TU_ID_2/preview" width="100%" height="180" style="border:none; display:block;"></iframe> -->
+            <iframe src="https://drive.google.com/file/d/1UFzOeMprq-7qUjLucaWpsBmE7gSw6K4_/preview" width="100%"
+              height="180" style="border:none; display:block;"></iframe>
           </div>
 
           <!-- Documento 3 -->
-          <div style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
+          <div
+            style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
             <div style="background:#003865; padding:8px 12px; display:flex; align-items:center; gap:7px;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
               <span style="font-size:11px; font-weight:600; color:white;">Documento 3</span>
             </div>
-            <!-- EDITAR: reemplaza el div de abajo por el iframe cuando tengas el src -->
-            <div class="embed-placeholder" style="flex:1; border-radius:0; padding:20px 0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <strong style="font-size:12px;">Encuesta 3</strong>
-              <p style="font-size:10px;">Pega el src de Drive aquí</p>
-            </div>
-            <!-- <iframe src="https://drive.google.com/file/d/TU_ID_3/preview" width="100%" height="180" style="border:none; display:block;"></iframe> -->
+            <iframe src="https://drive.google.com/file/d/1pJF_gEM-IPGIv9sfix9hZsz2LOE-dqdZ/preview" width="100%"
+              height="180" style="border:none; display:block;"></iframe>
           </div>
 
           <!-- Documento 4 -->
-          <div style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
+          <div
+            style="background:white; border:0.5px solid #E5E7EB; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,56,101,0.06); flex:1; display:flex; flex-direction:column;">
             <div style="background:#003865; padding:8px 12px; display:flex; align-items:center; gap:7px;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
               <span style="font-size:11px; font-weight:600; color:white;">Documento 4</span>
             </div>
-            <!-- EDITAR: reemplaza el div de abajo por el iframe cuando tengas el src -->
-            <div class="embed-placeholder" style="flex:1; border-radius:0; padding:20px 0;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <strong style="font-size:12px;">Encuesta 4</strong>
-              <p style="font-size:10px;">Pega el src de Drive aquí</p>
-            </div>
-            <!-- <iframe src="https://drive.google.com/file/d/TU_ID_4/preview" width="100%" height="180" style="border:none; display:block;"></iframe> -->
+            <iframe src="https://drive.google.com/file/d/1Nj_yN7s8biDhYwI5Dm1G3r8bWObwuZhg/preview" width="100%"
+              height="180" style="border:none; display:block;"></iframe>
           </div>
 
         </div><!-- /col-derecha -->
 
       </div><!-- /2-col grid -->
 
-    <style>
-      /* ── ENCUESTA ACORDEÓN ── */
-      .sq-entry {
-        border: 0.5px solid #E5E7EB;
-        border-radius: 10px;
-        background: white;
-        overflow: hidden;
-        transition: border-color 0.15s, box-shadow 0.15s;
-      }
-
-      .sq-entry:hover {
-        border-color: #00B5E2;
-        box-shadow: 0 2px 10px rgba(0, 181, 226, 0.10);
-      }
-
-      .sq-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 18px;
-        cursor: pointer;
-        user-select: none;
-      }
-
-      .sq-titulo {
-        font-size: 13px;
-        font-weight: 600;
-        color: #003865;
-        flex: 1;
-      }
-
-      .sq-score {
-        font-size: 12px;
-        font-weight: 700;
-        color: #003865;
-        background: rgba(0, 181, 226, 0.12);
-        border-radius: 20px;
-        padding: 3px 10px;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .sq-score-yes {
-        background: rgba(0, 181, 226, 0.18);
-        color: #003865;
-      }
-
-      .sq-chevron {
-        flex-shrink: 0;
-        color: #9CA3AF;
-        transition: transform 0.2s ease;
-      }
-
-      .sq-entry.open .sq-chevron {
-        transform: rotate(180deg);
-      }
-
-      .sq-body {
-        display: none;
-        padding: 0 18px 16px;
-        border-top: 0.5px solid #F3F4F6;
-      }
-
-      .sq-entry.open .sq-body {
-        display: block;
-      }
-
-      .sq-question {
-        font-size: 12px;
-        color: #6B7280;
-        margin: 12px 0 12px;
-        font-style: italic;
-      }
-
-      .sq-bars {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .sq-bar-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .sq-label {
-        font-size: 12px;
-        color: #374151;
-        width: 110px;
-        flex-shrink: 0;
-      }
-
-      .sq-track {
-        flex: 1;
-        height: 8px;
-        background: #E6F0F8;
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      .sq-fill {
-        height: 100%;
-        background: #1565C0;
-        border-radius: 4px;
-        transition: width 0.6s ease;
-      }
-
-      .sq-pct {
-        font-size: 12px;
-        font-weight: 600;
-        color: #374151;
-        width: 44px;
-        text-align: right;
-        flex-shrink: 0;
-      }
-
-      /* Comentarios */
-      .sq-comments {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 4px;
-      }
-
-      .sq-comment {
-        font-size: 12.5px;
-        color: #374151;
-        line-height: 1.6;
-        padding: 8px 12px;
-        border-left: 3px solid #1565C0;
-        background: #F0F6FF;
-        border-radius: 0 6px 6px 0;
-      }
-
-      @media (max-width: 640px) {
-        .sq-label {
-          width: 80px;
-          font-size: 11px;
+      <style>
+        /* ── ENCUESTA ACORDEÓN ── */
+        .sq-entry {
+          border: 0.5px solid #E5E7EB;
+          border-radius: 10px;
+          background: white;
+          overflow: hidden;
+          transition: border-color 0.15s, box-shadow 0.15s;
         }
-      }
-    </style>
 
-    <script>
-      function toggleSq(header) {
-        const entry = header.closest('.sq-entry');
-        entry.classList.toggle('open');
-      }
-      // Abrir la primera entrada por defecto
-      document.addEventListener('DOMContentLoaded', () => {
-        const first = document.querySelector('.sq-entry');
-        if (first) first.classList.add('open');
-      });
-    </script>
+        .sq-entry:hover {
+          border-color: #00B5E2;
+          box-shadow: 0 2px 10px rgba(0, 181, 226, 0.10);
+        }
 
+        .sq-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 14px 18px;
+          cursor: pointer;
+          user-select: none;
+        }
 
-    <!-- ── BITÁCORA ── -->
-    <div class="section-tag">Registro del proceso</div>
-    <h2 class="section-title">Bitácora del evento</h2>
-    <div class="divider"></div>
+        .sq-titulo {
+          font-size: 13px;
+          font-weight: 600;
+          color: #003865;
+          flex: 1;
+        }
 
-    <!-- Descripción -->
-    <p style="font-size:14px; color:#6B7280; line-height:1.75; margin-bottom:1.5rem; max-width:680px;">
-      Registro cronológico de todas las actividades realizadas durante el Panel de Ponentes 2026.
-      Cada entrada incluye horario, descripción, comisión responsable y evidencias relacionadas.
-    </p>
+        .sq-score {
+          font-size: 12px;
+          font-weight: 700;
+          color: #003865;
+          background: rgba(0, 181, 226, 0.12);
+          border-radius: 20px;
+          padding: 3px 10px;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
 
-    <!-- Timeline / Acordeón de actividades -->
-    <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid #00B5E2; padding-bottom:5px; margin-bottom:12px;">
-      <span style="font-size:14px; font-weight:700; color:#003865;">Entradas de la bitácora</span>
-      <button id="bl-toggle-all" onclick="toggleAllBl()"
-        style="display:inline-flex; align-items:center; gap:5px; background:rgba(0,56,101,0.07); border:0.5px solid #CBD5E1; border-radius:7px; padding:4px 12px; font-size:11px; font-weight:600; color:#003865; cursor:pointer; transition:background 0.15s;">
-        <svg id="bl-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
-        <span id="bl-toggle-label">Cerrar todo</span>
-      </button>
-    </div>
-    <script>
-      var blAllOpen = true;
-      function toggleAllBl() {
-        var entries = document.querySelectorAll('.bl-entry');
-        blAllOpen = !blAllOpen;
-        entries.forEach(function(e) {
-          if (blAllOpen) { e.classList.add('open'); }
-          else { e.classList.remove('open'); }
+        .sq-score-yes {
+          background: rgba(0, 181, 226, 0.18);
+          color: #003865;
+        }
+
+        .sq-chevron {
+          flex-shrink: 0;
+          color: #9CA3AF;
+          transition: transform 0.2s ease;
+        }
+
+        .sq-entry.open .sq-chevron {
+          transform: rotate(180deg);
+        }
+
+        .sq-body {
+          display: none;
+          padding: 0 18px 16px;
+          border-top: 0.5px solid #F3F4F6;
+        }
+
+        .sq-entry.open .sq-body {
+          display: block;
+        }
+
+        .sq-question {
+          font-size: 12px;
+          color: #6B7280;
+          margin: 12px 0 12px;
+          font-style: italic;
+        }
+
+        .sq-bars {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .sq-bar-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .sq-label {
+          font-size: 12px;
+          color: #374151;
+          width: 110px;
+          flex-shrink: 0;
+        }
+
+        .sq-track {
+          flex: 1;
+          height: 8px;
+          background: #E6F0F8;
+          border-radius: 4px;
+          overflow: hidden;
+        }
+
+        .sq-fill {
+          height: 100%;
+          background: #1565C0;
+          border-radius: 4px;
+          transition: width 0.6s ease;
+        }
+
+        .sq-pct {
+          font-size: 12px;
+          font-weight: 600;
+          color: #374151;
+          width: 44px;
+          text-align: right;
+          flex-shrink: 0;
+        }
+
+        /* Comentarios */
+        .sq-comments {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-top: 4px;
+        }
+
+        .sq-comment {
+          font-size: 12.5px;
+          color: #374151;
+          line-height: 1.6;
+          padding: 8px 12px;
+          border-left: 3px solid #1565C0;
+          background: #F0F6FF;
+          border-radius: 0 6px 6px 0;
+        }
+
+        @media (max-width: 640px) {
+          .sq-label {
+            width: 80px;
+            font-size: 11px;
+          }
+        }
+      </style>
+
+      <script>
+        function toggleSq(header) {
+          const entry = header.closest('.sq-entry');
+          entry.classList.toggle('open');
+        }
+        // Abrir la primera entrada por defecto
+        document.addEventListener('DOMContentLoaded', () => {
+          const first = document.querySelector('.sq-entry');
+          if (first) first.classList.add('open');
         });
-        document.getElementById('bl-toggle-label').textContent = blAllOpen ? 'Cerrar todo' : 'Abrir todo';
-        var icon = document.getElementById('bl-toggle-icon');
-        icon.style.transform = blAllOpen ? '' : 'rotate(180deg)';
-      }
-    </script>
-    <div id="bitacora-list" style="display:flex; flex-direction:column; gap:10px; margin-bottom:2rem;">
-      <!-- 01 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:07</span>
-          <span class="bl-titulo">Llegada de directivos</span>
-          <span class="badge badge-doc bl-badge">Protocolo</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      </script>
+
+
+      <!-- ── BITÁCORA ── -->
+      <div class="section-tag">Registro del proceso</div>
+      <h2 class="section-title">Bitácora del evento</h2>
+      <div class="divider"></div>
+
+      <!-- Descripción -->
+      <p style="font-size:14px; color:#6B7280; line-height:1.75; margin-bottom:1.5rem; max-width:680px;">
+        Registro cronológico de todas las actividades realizadas durante el Panel de Ponentes 2026.
+        Cada entrada incluye horario, descripción y comisión responsable.
+      </p>
+
+      <!-- Timeline / Acordeón de actividades -->
+      <div
+        style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid #00B5E2; padding-bottom:5px; margin-bottom:12px;">
+        <span style="font-size:14px; font-weight:700; color:#003865;">Entradas de la bitácora</span>
+        <button id="bl-toggle-all" onclick="toggleAllBl()"
+          style="display:inline-flex; align-items:center; gap:5px; background:rgba(0,56,101,0.07); border:0.5px solid #CBD5E1; border-radius:7px; padding:4px 12px; font-size:11px; font-weight:600; color:#003865; cursor:pointer; transition:background 0.15s;">
+          <svg id="bl-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2.5" stroke-linecap="round">
             <polyline points="18 15 12 9 6 15" />
           </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Recepción de autoridades, directivos invitados y ponentes en la entrada principal.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Protocolo
-            </span>
-          </div>
-        </div>
+          <span id="bl-toggle-label">Cerrar todo</span>
+        </button>
+      </div>
+      <script>
+        var blAllOpen = true;
+        function toggleAllBl() {
+          var entries = document.querySelectorAll('.bl-entry');
+          blAllOpen = !blAllOpen;
+          entries.forEach(function (e) {
+            if (blAllOpen) { e.classList.add('open'); }
+            else { e.classList.remove('open'); }
+          });
+          document.getElementById('bl-toggle-label').textContent = blAllOpen ? 'Cerrar todo' : 'Abrir todo';
+          var icon = document.getElementById('bl-toggle-icon');
+          icon.style.transform = blAllOpen ? '' : 'rotate(180deg)';
+        }
+      </script>
+      <!-- BOTONES DE PANELES -->
+      <div style="display:flex; gap:10px; margin-bottom:1.5rem;">
+        <button id="btn-panel1" onclick="showPanel(1)"
+          style="cursor:pointer; font-family:inherit; font-size:13px; font-weight:700; padding:10px 22px; border-radius:6px; background:var(--cyan, #00B5E2); color:var(--navy, #003865); border:1px solid var(--cyan, #00B5E2); transition:all 0.15s;">Apertura
+          y panel 1</button>
+        <button id="btn-panel2" onclick="showPanel(2)"
+          style="cursor:pointer; font-family:inherit; font-size:13px; font-weight:700; padding:10px 22px; border-radius:6px; background:transparent; color:var(--navy, #003865); border:1px solid var(--gray-400, #9CA3AF); transition:all 0.15s;">Panel
+          2 y cierre</button>
       </div>
 
-      <!-- 02 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:11</span>
-          <span class="bl-titulo">Comienzo del protocolo</span>
-          <span class="badge badge-doc bl-badge">Protocolo</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Inicio formal del evento con la ubicación de las autoridades en sus lugares designados.
-          </p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+      <script>
+        function showPanel(panelNum) {
+          var p1 = document.getElementById('panel-1');
+          var p2 = document.getElementById('panel-2');
+          var b1 = document.getElementById('btn-panel1');
+          var b2 = document.getElementById('btn-panel2');
+
+          if (panelNum === 1) {
+            p1.style.display = 'flex';
+            p2.style.display = 'none';
+            b1.style.background = 'var(--cyan, #00B5E2)';
+            b1.style.color = 'var(--navy, #003865)';
+            b1.style.border = '1px solid var(--cyan, #00B5E2)';
+
+            b2.style.background = 'transparent';
+            b2.style.color = 'var(--navy, #003865)';
+            b2.style.border = '1px solid var(--gray-400, #9CA3AF)';
+          } else {
+            p1.style.display = 'none';
+            p2.style.display = 'flex';
+            b2.style.background = 'var(--cyan, #00B5E2)';
+            b2.style.color = 'var(--navy, #003865)';
+            b2.style.border = '1px solid var(--cyan, #00B5E2)';
+
+            b1.style.background = 'transparent';
+            b1.style.color = 'var(--navy, #003865)';
+            b1.style.border = '1px solid var(--gray-400, #9CA3AF)';
+          }
+        }
+      </script>
+
+      <div id="panel-1" style="display:flex; flex-direction:column; gap:10px; margin-bottom:2rem;">
+        <!-- 01 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:07</span>
+            <span class="bl-titulo">Llegada de directivos</span>
+            <span class="badge badge-doc bl-badge">Protocolo</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Recepción de autoridades, directivos invitados y ponentes en la entrada principal.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Protocolo
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 03 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:13</span>
-          <span class="bl-titulo">Inauguración</span>
-          <span class="badge badge-doc bl-badge">Protocolo</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Mensaje de bienvenida y declaratoria oficial de inauguración del panel.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 02 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:11</span>
+            <span class="bl-titulo">Comienzo del protocolo</span>
+            <span class="badge badge-doc bl-badge">Protocolo</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Inicio formal del evento con la ubicación de las autoridades en sus lugares designados.
+            </p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 04 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:19</span>
-          <span class="bl-titulo">Presentación de ponente — Gabriela López</span>
-          <span class="badge badge-doc bl-badge">Protocolo</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Lectura de semblanza y trayectoria de la ponente Gabriela López.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Maestro de ceremonias
-            </span>
+        <!-- 03 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:13</span>
+            <span class="bl-titulo">Inauguración</span>
+            <span class="badge badge-doc bl-badge">Protocolo</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Mensaje de bienvenida y declaratoria oficial de inauguración del panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 05 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:21</span>
-          <span class="bl-titulo">Inicio de primera ponencia</span>
-          <span class="badge badge-video bl-badge">Ponencia</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Desarrollo de la exposición principal a cargo de Gabriela López.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Gestión de Ponentes
-            </span>
+        <!-- 04 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:19</span>
+            <span class="bl-titulo">Presentación de ponente — Gabriela López</span>
+            <span class="badge badge-doc bl-badge">Protocolo</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Lectura de semblanza y trayectoria de la ponente Gabriela López.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Maestro de ceremonias
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 06 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:35</span>
-          <span class="bl-titulo">Entrega de agradecimiento</span>
-          <span class="badge badge-pending bl-badge">Reconocimiento</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Otorgamiento de diploma y presente a la ponente por su contribución académica.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 05 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:21</span>
+            <span class="bl-titulo">Inicio de primera ponencia</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Desarrollo de la exposición principal a cargo de Gabriela López.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Gestión de Ponentes
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 07 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:38</span>
-          <span class="bl-titulo">Preguntas y respuestas (inicio)</span>
-          <span class="badge badge-img bl-badge">Q&amp;A</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
+        <!-- 06 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:35</span>
+            <span class="bl-titulo">Entrega de agradecimiento</span>
+            <span class="badge badge-pending bl-badge">Reconocimiento</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Otorgamiento de diploma y presente a la ponente por su contribución académica.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="bl-body">
-          <p class="bl-desc">Dinámica de interacción donde el público expuso sus dudas a la ponente.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+        <!-- 07 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:38</span>
+            <span class="bl-titulo">Preguntas y respuestas (inicio)</span>
+            <span class="badge badge-img bl-badge">Q&amp;A</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Dinámica de interacción donde el público expuso sus dudas a la ponente.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                Participación del público
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">10:47</span>
+            <span class="bl-titulo">Fin de preguntas y respuestas — 1er ponente</span>
+            <span class="badge badge-img bl-badge">Q&amp;A</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Conclusión de la sesión de interacción para dar paso al siguiente bloque.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:01</span>
+            <span class="bl-titulo">Inicio de 2ª ponencia — Anclis Meca Hernández</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Inicio de la intervención de Anclis Meca Hernández, aportando nuevas perspectivas al
+              panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Gestión de Ponentes
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:11</span>
+            <span class="bl-titulo">Fin de primera ponencia</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Cierre del bloque de presentación correspondiente a la primera ponencia del panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:12</span>
+            <span class="bl-titulo">Inicio 2ª ponencia — Martha Patricia Jaramillo</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Desarrollo de la presentación a cargo de Martha Patricia Jaramillo.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Gestión de Ponentes
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:14</span>
+            <span class="bl-titulo">Fin de segunda ponencia</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Término de la intervención de Martha Patricia Jaramillo.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:25</span>
+            <span class="bl-titulo">Inicio 3ª ponencia — Faustino González Ramírez</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Tercera participación del evento, conducida por Faustino González Ramírez.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Gestión de Ponentes
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:37</span>
+            <span class="bl-titulo">Fin de 3ª ponencia</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Cierre de la exposición de Faustino González Ramírez, concluyendo las intervenciones
+              individuales.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:38</span>
+            <span class="bl-titulo">Preguntas y respuestas — 1er panel</span>
+            <span class="badge badge-img bl-badge">Q&amp;A</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Ronda general de preguntas del auditorio dirigidas a todos los ponentes del panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                Participación del público
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:50</span>
+            <span class="bl-titulo">Fin del primer panel</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Conclusión oficial del primer panel de ponentes y síntesis de los temas tratados.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">11:51</span>
+            <span class="bl-titulo">Entrega de agradecimientos</span>
+            <span class="badge badge-pending bl-badge">Reconocimiento</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Reconocimiento final a los ponentes, moderadores y autoridades por su apoyo al evento.
+            </p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Responsable: Protocolo
+              </span>
+            </div>
+          </div>
+        </div><!-- /bl-entry 17 -->
+      </div><!-- /panel-1 -->
+
+      <!-- PANEL 2 -->
+      <div id="panel-2" style="display:none; flex-direction:column; gap:10px; margin-bottom:2rem;">
+
+        <!-- Encabezado Panel 2 -->
+        <div
+          style="background:linear-gradient(135deg,#003865 0%,#005a9e 100%); border-radius:12px; padding:18px 22px; margin-bottom:4px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <span style="font-size:15px; font-weight:800; color:white; letter-spacing:-0.2px;">Panel 2 &nbsp;·&nbsp;
+              12:41 – 01:41</span>
+            <span
+              style="font-size:11px; font-weight:600; background:rgba(0,181,226,0.25); color:#7DE8FF; border-radius:20px; padding:3px 12px; white-space:nowrap;">Segundo
+              bloque</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)"
+                stroke-width="2" style="flex-shrink:0; margin-top:2px;">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg>
+              <span style="font-size:13px; color:rgba(255,255,255,0.9); line-height:1.4;"><strong
+                  style="color:white;">Tema:</strong> "Comercio Exterior en México"</span>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)"
+                stroke-width="2" style="flex-shrink:0; margin-top:2px;">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
-              Participación del público
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Logística y Operación
-            </span>
+              <span style="font-size:13px; color:rgba(255,255,255,0.9); line-height:1.4;"><strong
+                  style="color:white;">Ponentes:</strong> Margarita Bartolotti &nbsp;·&nbsp; José Eduardo Flores del
+                Moral &nbsp;·&nbsp; Alejandro Mejía</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 08 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">10:47</span>
-          <span class="bl-titulo">Fin de preguntas y respuestas — 1er ponente</span>
-          <span class="badge badge-img bl-badge">Q&amp;A</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Conclusión de la sesión de interacción para dar paso al siguiente bloque.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
+        <!-- 18 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">12:41</span>
+            <span class="bl-titulo">Inicio del segundo panel</span>
+            <span class="badge badge-doc bl-badge">Protocolo</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Apertura y presentación del segundo bloque de ponencias.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 09 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:01</span>
-          <span class="bl-titulo">Inicio de 2ª ponencia — Anclis Meca Hernández</span>
-          <span class="badge badge-video bl-badge">Ponencia</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Inicio de la intervención de Anclis Meca Hernández, aportando nuevas perspectivas al
-            panel.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Gestión de Ponentes
-            </span>
+        <!-- 19 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">12:43</span>
+            <span class="bl-titulo">Inicio 4ª ponencia — Margarita Bartolotti</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Desarrollo de la exposición principal a cargo de Margarita Bartolotti.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 10 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:11</span>
-          <span class="bl-titulo">Fin de primera ponencia</span>
-          <span class="badge badge-done bl-badge">Cierre</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Cierre del bloque de presentación correspondiente a la primera ponencia del panel.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 20 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">12:53</span>
+            <span class="bl-titulo">Fin de ponencia 4</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Cierre de la exposición de Margarita Bartolotti.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 11 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:12</span>
-          <span class="bl-titulo">Inicio 2ª ponencia — Martha Patricia Jaramillo</span>
-          <span class="badge badge-video bl-badge">Ponencia</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Desarrollo de la presentación a cargo de Martha Patricia Jaramillo.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Gestión de Ponentes
-            </span>
+        <!-- 21 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">12:55</span>
+            <span class="bl-titulo">Inicio 5ª ponencia — José Eduardo Flores del Moral</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Desarrollo de la exposición principal a cargo de José Eduardo Flores del Moral.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 12 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:14</span>
-          <span class="bl-titulo">Fin de segunda ponencia</span>
-          <span class="badge badge-done bl-badge">Cierre</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Término de la intervención de Martha Patricia Jaramillo.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 22 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:09</span>
+            <span class="bl-titulo">Fin de ponencia 5</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Cierre de la exposición de José Eduardo Flores del Moral.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 13 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:25</span>
-          <span class="bl-titulo">Inicio 3ª ponencia — Faustino González Ramírez</span>
-          <span class="badge badge-video bl-badge">Ponencia</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Tercera participación del evento, conducida por Faustino González Ramírez.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Gestión de Ponentes
-            </span>
+        <!-- 23 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:10</span>
+            <span class="bl-titulo">Inicio 6ª ponencia — Alejandro Mejía</span>
+            <span class="badge badge-video bl-badge">Ponencia</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Desarrollo de la exposición principal a cargo de Alejandro Mejía.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 14 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:37</span>
-          <span class="bl-titulo">Fin de 3ª ponencia</span>
-          <span class="badge badge-done bl-badge">Cierre</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Cierre de la exposición de Faustino González Ramírez, concluyendo las intervenciones
-            individuales.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 24 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:16</span>
+            <span class="bl-titulo">Fin del 2do panel</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Conclusión oficial de las intervenciones del segundo panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 15 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:38</span>
-          <span class="bl-titulo">Preguntas y respuestas — 1er panel</span>
-          <span class="badge badge-img bl-badge">Q&amp;A</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Ronda general de preguntas del auditorio dirigidas a todos los ponentes del panel.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Participación del público
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Gestión de Ponentes
-            </span>
+        <!-- 25 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:27</span>
+            <span class="bl-titulo">Inicio de preguntas y respuestas</span>
+            <span class="badge badge-img bl-badge">Q&amp;A</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Sesión general de preguntas y respuestas para el segundo panel.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 16 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:50</span>
-          <span class="bl-titulo">Fin del primer panel</span>
-          <span class="badge badge-done bl-badge">Cierre</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Conclusión oficial del primer panel de ponentes y síntesis de los temas tratados.</p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
+        <!-- 26 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:40</span>
+            <span class="bl-titulo">Fin de preguntas y respuestas</span>
+            <span class="badge badge-img bl-badge">Q&amp;A</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Término de la sesión de interacción y despedida de ponentes.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 17 -->
-      <div class="bl-entry">
-        <div class="bl-header" onclick="toggleBl(this)">
-          <span class="bl-hora">11:51</span>
-          <span class="bl-titulo">Entrega de agradecimientos</span>
-          <span class="badge badge-pending bl-badge">Reconocimiento</span>
-          <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <polyline points="18 15 12 9 6 15" />
-          </svg>
-        </div>
-        <div class="bl-body">
-          <p class="bl-desc">Reconocimiento final a los ponentes, moderadores y autoridades por su apoyo al evento.
-          </p>
-          <div class="bl-meta">
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-              Comisión: Protocolo y Experiencia
-            </span>
-            <span class="bl-meta-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              Responsable: Protocolo
-            </span>
+        <!-- 27 -->
+        <div class="bl-entry">
+          <div class="bl-header" onclick="toggleBl(this)">
+            <span class="bl-hora">01:41</span>
+            <span class="bl-titulo">Fin de la jornada</span>
+            <span class="badge badge-done bl-badge">Cierre</span>
+            <svg class="bl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+          </div>
+          <div class="bl-body">
+            <p class="bl-desc">Clausura del evento y agradecimiento general a todos los asistentes.</p>
+            <div class="bl-meta">
+              <span class="bl-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Comisión: Registrado por Documentación y Evaluación
+              </span>
+            </div>
           </div>
         </div>
-      </div><!-- /bitacora-list -->
+
+      </div><!-- /panel-2 -->
 
       <!-- Nota editable -->
       <div style="font-size:11px; color:#9CA3AF; margin-bottom:1rem;">
         <!-- EDITAR: para añadir o modificar entradas, duplica el bloque .bl-entry en evaluacion.html -->
-        Registro basado en el programa del evento. Edita <code>evaluacion.html</code> para actualizar las entradas.
+        Registro basado en el programa del evento y las notas realizadas por miembros de Documentación y Evaluación
+
+        Creditos especiales a: Max (Chambeo Mucho) y Saul (Le pedia cosas a)
+      </div>
+      <!-- Nota editable -->
+      <div style="font-size:11px; color:#9CA3AF; margin-bottom:1rem;">
+        <!-- EDITAR: para añadir o modificar entradas, duplica el bloque .bl-entry en evaluacion.html -->
+
+        Creditos especiales a: Max (Chambeo Mucho) y Saul (Le pedia cosas a cada rato)
       </div>
 
       <style>
